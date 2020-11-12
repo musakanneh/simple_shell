@@ -1,0 +1,16 @@
+./"This is a manpage of the implementation of a simple UNIX command interpreter.
+.TH Simple Shell
+
+.SH NAME
+B _simple_shell
+- a function to implement a simple UNIX command interpreter
+
+.SH SYNOPSIS
+.BR #include
+.BR <holberton.h>
+
+.SH DESCRIPTION
+Executes and interprets basic LINUX/UNIX commands + supplementary functions based on user inputs.
+IReturn:
+Print the numbers of characters excluding the Null-Byte
+    Print the ARGUMENT(s) according to FORMAT:

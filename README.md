@@ -1,8 +1,21 @@
 # Simple Shell
-In this project, will will implementing a simple shell.
+In this project, we will be implementing a simple UNIX command interpreter. The work constitutes the second project of the Low-level programming & Algorithm ― Linux and Unix system programming ― of the ALX-Holberton Software Engineering program.
 
-_This work constitutes the second project of the Low-level programming & Algorithm ― Linux and Unix system programming ― of the ALX-Holberton Software Engineering program._
-
+## Project Objectives
+- Who designed and implemented the original Unix operating system
+- Who wrote the first version of the UNIX shell
+- Who invented the B programming language (the direct predecessor to the C programming language)
+- Who is Ken Thompson
+- How does a shell work
+- What is a pid and a ppid
+- How to manipulate the environment of the current process
+- What is the difference between a function and a system call
+- How to create processes
+- What are the three prototypes of main
+- How does the shell use the PATH to find the programs
+- How to execute another program with the execve system call
+- How to suspend the execution of a process until one of its children terminates
+- What is EOF / “end-of-file”?
 ## General Requirements
 - Allowed editors: vi, vim, emacs
 - All your files will be compiled on Ubuntu 14.04 LTS
@@ -17,7 +30,7 @@ _This work constitutes the second project of the Low-level programming & Algorit
 - Our program have the exact same output as sh (/bin/sh) as well as the exact same error output.
 - The only difference is when you print an error, the name of the program must be equivalent to your argv[0]
 
->### Example of error with sh:
+### Example of error with sh:
 ```Bash
 $ echo "qwerty" | /bin/sh
 /bin/sh: 1: qwerty: not found
@@ -25,7 +38,7 @@ $ echo "qwerty" | /bin/../bin/sh
 /bin/../bin/sh: 1: qwerty: not found
 $
 ```
->### Same error with your program hsh:
+### Same error with your program hsh:
 ```Bash
 $ echo "qwerty" | ./hsh
 ./hsh: 1: qwerty: not found
@@ -80,7 +93,7 @@ hsh main.c shell.c
 ($) exit
 $
 ```
-### Also, in non-interactive mode:
+#### Also in non-interactive mode:
 ```Bash
 $ echo "/bin/ls" | ./hsh
 hsh main.c shell.c test_ls_2
@@ -95,11 +108,11 @@ hsh main.c shell.c test_ls_2
 $
 ```
 ## The Project's Implementation in Review
-> ### Submission requirements:
+#### Submission requirements:
 1. Write a beautiful code that passes the Betty checks
 2. Write a UNIX command line interpreter.
 
-> ### Our Shell will have to:
+#### Our Shell will have to:
 - Display a prompt and wait for the user to type a command. A command line always ends with a new line.
 - The prompt is displayed again each time a command has been executed.
 - The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
@@ -108,7 +121,7 @@ $
 - We will handle handle errors.
 - We have to handle the “end of file” condition (Ctrl+D)
 
-> ### Oue Shell will not have to:
+#### Our Shell will not have to:
 - use the PATH
 - implement built-ins
 - handle special characters : ", ', `, \, *, &, #
@@ -125,7 +138,14 @@ $
 6. Simple shell 0.4 +
     - Implement the env built-in, that prints the current environment
 
-## Contributors:
+## Using the man_1_simple_shell page
+- Display the page
+```Bash
+ man ./man_1_simple_shell
+```
+
+
+### Contributors
 |Names                | Emails                 |
 |---------------------|------------------------|
 | Musa Selekie Kanneh | musas.kanneh@gmail.com |
