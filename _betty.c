@@ -7,5 +7,5 @@
 
 int __betty_checks()
 {
-    return (0);
+	return (0);
 }

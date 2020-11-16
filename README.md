@@ -1,5 +1,6 @@
 # Simple Shell
-In this project, we will be implementing a simple UNIX command interpreter. The work constitutes the second project of the Low-level programming & Algorithm ― Linux and Unix system programming ― of the ALX-Holberton Software Engineering program.
+![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
+A Unix shell is a command-line interpreter or shell that provides a command line user interface for Unix-like operating systems. The shell is both an interactive command language and a scripting language, and is used by the operating system to control the execution of the system using shell scripts, [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we will be implementing a simple UNIX command interpreter.
 
 ## Project Objectives
 - Who designed and implemented the original Unix operating system
