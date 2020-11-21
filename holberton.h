@@ -15,6 +15,17 @@
 #define ENOBUILTIN 415
 #define EBADCD 726
 
+/* string control functions */
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
+char *_strchr(char *s, char c);
+char *itoa(unsigned int n);
+int intlen(int num);
+void rev_arr(char *arr, int len);
+
 /**
  * struct linkedList - linked list data structure
  * @string: environ variable path name
