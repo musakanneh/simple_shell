@@ -156,3 +156,45 @@ char *itoa(unsigned int n)
 	s[i + 1] = '\0';
 	return (s);
 }
+
+/**
+ * rev_arr - reverse a string
+ * @arr: first parameter
+ * @len: second parameter
+ *
+ * Description - reverse a string
+ * Return: Void
+ */
+
+void rev_arr(char *arr, int len)
+{
+	int i;
+	char tmp;
+
+	for (i = 0; i < (len / 2); i++)
+	{
+		tmp = arr[i];
+		arr[i] = arr[(len - 1) - i];
+		arr[(len - 1) - i] = tmp;
+	}
+}
+
+/**
+ * intlen - count digits in an integer
+ * @num: first parameter
+ *
+ * Description - counts digits in an integer
+ * Return: the length of the integer
+ */
+
+int intlen(int num)
+{
+	int len = 0;
+
+	while (num != 0)
+	{
+		len++;
+		num /= 10;
+	}
+	return (len);
+}
