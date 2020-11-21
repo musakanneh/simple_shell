@@ -106,14 +106,14 @@ void fork_and_execute(config *build)
 	{
 		perror("error\n");
 		free_member(build);
-		freeArgs(build->envList);
+		free_args(build->envList);
 		exit(1);
 	}
 	if (f1 == 0)
 	{
 		if (execve(build->fullPath, build->args, build->envList) == -1)
 		{
-			errorHandler(build);
+			handle_errors(build);
 			free_member(build);
 			free_args(build->envList);
 			if (errno == ENOENT)

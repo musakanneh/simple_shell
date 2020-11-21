@@ -35,5 +35,6 @@ void handle_sigint(int sigint)
     (void)sigint;
     signal(SIGINT, handle_sigint);
     put_new_line();
+    put_new_line();
     fflush(stdout);
 }
