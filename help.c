@@ -40,7 +40,7 @@ int helpFunc(config *build)
     if (foundCommand == false)
     {
         errno = ENOBUILTIN;
-        errorHandler(build);
+        handle_errors(build);
     }
     return (1);
 }
