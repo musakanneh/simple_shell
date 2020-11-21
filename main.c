@@ -12,7 +12,7 @@ int main(int ac, char **av)
 
     (void)ac;
     signal(SIGINT, handle_sigint);
-    config_init(&build);
+    configInit(&build);
     build.shellName = av[0];
     shell(&build);
     return (0);
@@ -23,7 +23,7 @@ int main(int ac, char **av)
  * @build: input build
  * Return: build with initialized members
  */
-config *config_init(config *build)
+config *configInit(config *build)
 {
     build->env = generateLinkedList(environ);
     build->envList = NULL;

@@ -21,7 +21,7 @@ int updateOld(config *build)
     }
     current = getNodeAtIndex(build->env, pwdIndex);
     _strcat(old, current);
-    insertNullByte(old, _strlen(current) + 4);
+    get_null_bytes(old, _strlen(current) + 4);
     free(current);
     index = searchNode(build->env, "OLDPWD");
     if (index == -1)
@@ -30,7 +30,7 @@ int updateOld(config *build)
     }
     deleteNodeAtIndex(&build->env, index);
     addNodeAtIndex(&build->env, index, old);
-    insertNullByte(old, 0);
+    get_null_bytes(old, 0);
     return (pwdIndex);
 }
 
@@ -54,7 +54,7 @@ _Bool updateCur(config *build, int index)
     }
     else
         addNodeAtIndex(&build->env, 0, cwd);
-    insertNullByte(tmp, 0);
-    insertNullByte(cwd, 0);
+    get_null_bytes(tmp, 0);
+    get_null_bytes(cwd, 0);
     return (true);
 }

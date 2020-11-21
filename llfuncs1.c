@@ -83,7 +83,7 @@ size_t printList(const linked_l *h)
     while (h)
     {
         write(STDOUT_FILENO, h->string, _strlen(h->string));
-        displayNewLine();
+        put_new_line();
         h = h->next;
         count++;
     }

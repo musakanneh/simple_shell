@@ -32,17 +32,17 @@ int setenvFunc(config *build)
     _strcat(buffer, build->args[1]);
     _strcat(buffer, "=");
     _strcat(buffer, build->args[2]);
-    insertNullByte(buffer, len - 1);
+    get_null_bytes(buffer, len - 1);
     index = searchNode(build->env, build->args[1]);
     if (index == -1)
     {
         addNodeEnd(&build->env, buffer);
-        insertNullByte(buffer, 0);
+        get_null_bytes(buffer, 0);
         return (1);
     }
     deleteNodeAtIndex(&build->env, index);
     addNodeAtIndex(&build->env, index, buffer);
-    insertNullByte(buffer, 0);
+    get_null_bytes(buffer, 0);
     return (1);
 }
 

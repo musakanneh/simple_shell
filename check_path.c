@@ -29,14 +29,14 @@ _Bool checkPath(config *build)
         _strcat(buffer, tok);
         _strcat(buffer, "/");
         _strcat(buffer, build->args[0]);
-        insertNullByte(buffer, len - 1);
+        get_null_bytes(buffer, len - 1);
         if (stat(buffer, &st) == 0)
         {
             free(copy);
             build->fullPath = buffer;
             return (true);
         }
-        insertNullByte(buffer, 0);
+        get_null_bytes(buffer, 0);
         tok = _strtok(NULL, delim);
         inLoop = true;
     }

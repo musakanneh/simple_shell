@@ -13,7 +13,7 @@ void shell(config *build)
 		{
 			continue;
 		}
-		if (findBuiltIns(build) == 1)
+		if (find_built_ins(build) == 1)
 		{
 			continue;
 		}

@@ -44,6 +44,7 @@ typedef struct linkedList
     struct linkedList *next;
 } linked_l;
 
+
 /**
  * struct configurations - configuration of build settings
  * @env: linked list of local env variables
@@ -69,8 +70,19 @@ typedef struct configurations
     int errorStatus;
 } config;
 
+/**
+ * struct builtInCommands - commands and functions associated with it
+ * @command: input command
+ * @func: output function
+ */
+typedef struct builtInCommands
+{
+    char *command;
+    int (*func)(config *build);
+} type_b;
+
 /* main */
-config *config_init(config *build);
+config *configInit(config *build);
 
 /* built_ins */
 _Bool find_built_ins(config *build);

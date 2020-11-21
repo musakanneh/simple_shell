@@ -132,28 +132,28 @@ char *_strdup(char *str)
  * Description - converts integer to string
  * Return: a pointer to the null terminated string
  */
-char *itoa(unsigned int n)
-{
-	int len = 0, i = 0;
-	char *s;
+// char *itoa(unsigned int n)
+// {
+// 	int len = 0, i = 0;
+// 	char *s;
 
-	len = intlen(n);
-	s = malloc(len + 1);
-	if (!s)
-	{
-		return (NULL);
-	}
-	while (n / 10)
-	{
-		s[i] = (n % 10) + '0';
-		n /= 10;
-		i++;
-	}
-	s[i] = (n % 10) + '0';
-	rev_arr(s, len);
-	s[i + 1] = '\0';
-	return (s);
-}
+// 	len = intlen(n);
+// 	s = malloc(len + 1);
+// 	if (!s)
+// 	{
+// 		return (NULL);
+// 	}
+// 	while (n / 10)
+// 	{
+// 		s[i] = (n % 10) + '0';
+// 		n /= 10;
+// 		i++;
+// 	}
+// 	s[i] = (n % 10) + '0';
+// 	rev_arr(s, len);
+// 	s[i + 1] = '\0';
+// 	return (s);
+// }
 
 /**
  * rev_arr - reverse a string

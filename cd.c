@@ -63,7 +63,7 @@ _Bool cdToPrevious(config *build)
     {
         chdir(current);
         write(STDOUT_FILENO, current, _strlen(current));
-        displayNewLine();
+        put_new_line();
         return (true);
     }
     str = getNodeAtIndex(build->env, i);
@@ -71,7 +71,7 @@ _Bool cdToPrevious(config *build)
     ptr++;
     chdir(ptr);
     write(STDOUT_FILENO, ptr, _strlen(ptr));
-    displayNewLine();
+    put_new_line();
     free(str);
     return (true);
 }
@@ -89,7 +89,7 @@ _Bool cdToCustom(config *build)
     if (changeStatus == -1)
     {
         errno = EBADCD;
-        errorHandler(build);
+        handle_errors(build);
         return (false);
     }
     return (true);
