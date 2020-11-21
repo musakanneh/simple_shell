@@ -198,3 +198,23 @@ int intlen(int num)
 	}
 	return (len);
 }
+
+/**
+ * _strchr - find a char
+ * @s: first parameter
+ * @c: second parameter
+ * 
+ * Description - find a char
+ * Return: s or NULL if char not found
+ */
+
+char *_strchr(char *s, char c)
+{
+	while (*s != c && *s != '\0')
+		s++;
+	if (*s == c)
+		return (s);
+	else
+		return (NULL);
+}
+
