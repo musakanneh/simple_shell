@@ -77,3 +77,55 @@ char *_strcpy(char *dest, char *src)
 	return (res);
 }
 
+/**
+ * _strcmp - compares content of a string
+ * @s1: first parameter
+ * @s2: second parameter
+ * 
+ * Description - compares contents of a string
+ * Return: int
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	if (*s1 == *s2)
+	{
+		return (0);
+	}
+	else
+		return (*s1 - *s2);
+}
+
+/**
+ * _strdup - duplicates a string
+ * @str: first parameter
+ * 
+ * Description - duplicates a string
+ * Return: pointer type char
+ */
+
+char *_strdup(char *str)
+{
+	int i = 0;
+	char *ing;
+	char *temp;
+
+	if (str == NULL)
+		return (NULL);
+	while (str[i])
+		i++;
+	ing = malloc(i + 1);
+	temp = ing;
+	if (ing == NULL)
+		return (NULL);
+	while (*str)
+		*temp++ = *str++;
+	*temp = '\0';
+	return (ing);
+}
+
