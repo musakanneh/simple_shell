@@ -85,7 +85,7 @@ typedef struct builtInCommands
 config *configInit(config *build);
 
 /* built_ins */
-_Bool find_built_ins(config *build);
+_Bool findBuiltIns(config *build);
 int exitFunc(config *build);
 int historyFunc(config *build);
 int aliasFunc(config *build);
@@ -93,6 +93,13 @@ int aliasFunc(config *build);
 /* built_in_helpers*/
 int countArgs(char **args);
 int _atoi(char *s);
+
+/* cd */
+int cdFunc(config *);
+_Bool cdToHome(config *build);
+_Bool cdToPrevious(config *build);
+_Bool cdToCustom(config *build);
+_Bool updateEnviron(config *build); 
 
 /* cd2 */
 int updateOld(config *build);
@@ -121,7 +128,8 @@ int helpHelp(config *build);
 /* shell - */
 void shell(config *build);
 void validate_line(config *build);
-void fork_and_execute(config *build);
+void forkAndExecute(config *build);
+// void fork_and_execute(config *build);
 void strip_comments(char *str);
 void convertLLtoArr(config *build);
 

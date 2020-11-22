@@ -13,12 +13,12 @@ void shell(config *build)
 		{
 			continue;
 		}
-		if (find_built_ins(build) == 1)
+		if (findBuiltIns(build) == 1)
 		{
 			continue;
 		}
 		checkPath(build);
-		fork_and_execute(build);
+		forkAndExecute(build);
 	}
 }
 
@@ -96,7 +96,7 @@ void strip_comments(char *str)
  * fork_and_execute - fork current build and execute processes
  * @build: input build
  */
-void fork_and_execute(config *build)
+void forkAndExecute(config *build)
 {
 	int status;
 	pid_t f1 = fork();
@@ -130,4 +130,32 @@ void fork_and_execute(config *build)
 		free_args_and_buffer(build);
 		free_args(build->envList);
 	}
+}
+
+/**
+ * convertLLtoArr - convert linked list to array
+ * @build: input build
+ */
+void convertLLtoArr(config *build)
+{
+	register int i = 0;
+	size_t count = 0;
+	char **envList = NULL;
+	linked_l *tmp = build->env;
+
+	count = list_len(build->env);
+	envList = malloc(sizeof(char *) * (count + 1));
+	if (!envList)
+	{
+		perror("Malloc failed\n");
+		exit(1);
+	}
+	while (tmp)
+	{
+		envList[i] = _strdup(tmp->string);
+		tmp = tmp->next;
+		i++;
+	}
+	envList[i] = NULL;
+	build->envList = envList;
 }

@@ -1,59 +1,78 @@
 #include "holberton.h"
 
 /**
- * _strcat - concat two strings
- * @str1: first parameter
- * @str2: second parameter
- * 
- * Description - concat strings
- * Return: char
+ * _strlen - returns the length of a string
+ * @s: string s
+ * Return: length of string
  */
-
-char *_strcat(char *str1, char *str2)
+int _strlen(char *s)
 {
-	int str1_len, str2_len, i = 0, j = 0;
-	char *conc;
+	char *p = s;
 
-	str1_len = _strlen(str1);
-	str2_len = _strlen(str2);
-	conc = malloc(str1_len + str2_len + 2);
-
-	if (!conc)
-	{
-		return (NULL);
-	}
-	*conc = '\0';
-	while (str1[j])
-	{
-		conc[i++] = str1[j++];
-	}
-	conc[i++] = '/';
-	j = 0;
-	while (str2[j])
-	{
-		conc[i++] = str2[j++];
-	}
-	conc[i] = '\0';
-	return (conc);
+	while (*s)
+		s++;
+	return (s - p);
 }
 
 /**
- * _strlen - get lenght of a string
- * @s: first parameter
- *
- * Description - get lenght of a string
- * Return: lenght
+ * _strcat - concatenates two strings
+ * @dest: copy destination
+ * @src: copy source
+ * Return: concatenated string
  */
-
-int _strlen(char *s)
+char *_strcat(char *dest, char *src)
 {
-	int i;
+	char *ptr = dest + _strlen(dest);
 
-	for (i = 0; s[i];)
+	while (*src)
+		*ptr++ = *src++;
+	*ptr = 0;
+	return (dest);
+}
+
+/**
+ * _strcmp - compares two strings
+ * @s1: string 1
+ * @s2: string 2
+ * Return: 1 if true, 0 if false
+ */
+int _strcmp(char *s1, char *s2)
+{
+	while (*s1)
 	{
-		i++;
+		if (*s1 != *s2)
+			break;
+		s1++;
+		s2++;
 	}
-	return (i);
+
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+}
+
+/**
+ * _strdup - returns a pointer to a newly allocated space in memory,
+ * which contains a copy of the string given as a parameter.
+ * @str: string to be copied
+ * Return: copied string
+ */
+char *_strdup(char *str)
+{
+	int i, len;
+	char *copy;
+
+	if (!str)
+		return (NULL);
+	len = _strlen(str);
+	copy = malloc(sizeof(char) * len + 1);
+	if (!copy)
+	{
+		perror("Malloc failed\n");
+		exit(errno);
+	}
+	for (i = 0; i < len; i++)
+		copy[i] = str[i];
+	copy[i] = 0;
+	return (copy);
 }
 
 /**
@@ -71,147 +90,4 @@ char *_strcpy(char *dest, char *src)
 		*dest++ = *src++;
 	*dest = 0;
 	return (ptr);
-}
-
-/**
- * _strcmp - compares content of a string
- * @s1: first parameter
- * @s2: second parameter
- * 
- * Description - compares contents of a string
- * Return: int
- */
-
-int _strcmp(char *s1, char *s2)
-{
-	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
-	if (*s1 == *s2)
-	{
-		return (0);
-	}
-	else
-		return (*s1 - *s2);
-}
-
-/**
- * _strdup - duplicates a string
- * @str: first parameter
- * 
- * Description - duplicates a string
- * Return: pointer type char
- */
-
-char *_strdup(char *str)
-{
-	int i = 0;
-	char *ing;
-	char *temp;
-
-	if (str == NULL)
-		return (NULL);
-	while (str[i])
-		i++;
-	ing = malloc(i + 1);
-	temp = ing;
-	if (ing == NULL)
-		return (NULL);
-	while (*str)
-		*temp++ = *str++;
-	*temp = '\0';
-	return (ing);
-}
-
-/**
- * itoa - convert integer to string
- * @n: first parameter
- *
- * Description - converts integer to string
- * Return: a pointer to the null terminated string
- */
-// char *itoa(unsigned int n)
-// {
-// 	int len = 0, i = 0;
-// 	char *s;
-
-// 	len = intlen(n);
-// 	s = malloc(len + 1);
-// 	if (!s)
-// 	{
-// 		return (NULL);
-// 	}
-// 	while (n / 10)
-// 	{
-// 		s[i] = (n % 10) + '0';
-// 		n /= 10;
-// 		i++;
-// 	}
-// 	s[i] = (n % 10) + '0';
-// 	rev_arr(s, len);
-// 	s[i + 1] = '\0';
-// 	return (s);
-// }
-
-/**
- * rev_arr - reverse a string
- * @arr: first parameter
- * @len: second parameter
- *
- * Description - reverse a string
- * Return: Void
- */
-
-void rev_arr(char *arr, int len)
-{
-	int i;
-	char tmp;
-
-	for (i = 0; i < (len / 2); i++)
-	{
-		tmp = arr[i];
-		arr[i] = arr[(len - 1) - i];
-		arr[(len - 1) - i] = tmp;
-	}
-}
-
-/**
- * intlen - count digits in an integer
- * @num: first parameter
- *
- * Description - counts digits in an integer
- * Return: the length of the integer
- */
-
-int intlen(int num)
-{
-	int len = 0;
-
-	while (num != 0)
-	{
-		len++;
-		num /= 10;
-	}
-	return (len);
-}
-
-/**
- * _strchr - find a char
- * @s: first parameter
- * @c: second parameter
- * 
- * Description - find a char
- * Return: s or NULL if char not found
- */
-
-char *_strchr(char *s, char c)
-{
-	while (*s != c && *s != '\0')
-		s++;
-	if (*s == c)
-		return (s);
-	else
-		return (NULL);
 }
