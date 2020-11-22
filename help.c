@@ -7,42 +7,42 @@
  */
 int helpFunc(config *build)
 {
-    type_b help_arr[] = {
-        {"exit", helpExit},
-        {"env", helpEnv},
-        {"history", helpHistory},
-        {"alias", helpAlias},
-        {"cd", helpCd},
-        {"setenv", helpSetenv},
-        {"unsetenv", helpUnsetenv},
-        {"help", helpHelp},
-        {NULL, NULL}};
-    register int i = 0, j = 1, argCount = countArgs(build->args);
-    _Bool foundCommand = false;
+	type_b help_arr[] = {
+		{"exit", helpExit},
+		{"env", helpEnv},
+		{"history", helpHistory},
+		{"alias", helpAlias},
+		{"cd", helpCd},
+		{"setenv", helpSetenv},
+		{"unsetenv", helpUnsetenv},
+		{"help", helpHelp},
+		{NULL, NULL}};
+	register int i = 0, j = 1, argCount = countArgs(build->args);
+	_Bool foundCommand = false;
 
-    if (argCount == 1)
-        return (displayHelpMenu());
-    while (j < argCount)
-    {
-        i = 0;
-        while (help_arr[i].command)
-        {
-            if (_strcmp(build->args[j], help_arr[i].command) == 0)
-            {
-                foundCommand = true;
-                help_arr[i].func(build);
-                break;
-            }
-            i++;
-        }
-        j++;
-    }
-    if (foundCommand == false)
-    {
-        errno = ENOBUILTIN;
-        handle_errors(build);
-    }
-    return (1);
+	if (argCount == 1)
+		return (displayHelpMenu());
+	while (j < argCount)
+	{
+		i = 0;
+		while (help_arr[i].command)
+		{
+			if (_strcmp(build->args[j], help_arr[i].command) == 0)
+			{
+				foundCommand = true;
+				help_arr[i].func(build);
+				break;
+			}
+			i++;
+		}
+		j++;
+	}
+	if (foundCommand == false)
+	{
+		errno = ENOBUILTIN;
+		handle_errors(build);
+	}
+	return (1);
 }
 
 /**
@@ -51,12 +51,12 @@ int helpFunc(config *build)
  */
 int displayHelpMenu(void)
 {
-    char str[81] = "Type help [built-in]\n\nIncluded built-ins:";
-    char *str2 = "\n\n\texit\n\tenv\n\tcd\n\tsetenv\n\tunsetenv\n\thelp\n";
+	char str[81] = "Type help [built-in]\n\nIncluded built-ins:";
+	char *str2 = "\n\n\texit\n\tenv\n\tcd\n\tsetenv\n\tunsetenv\n\thelp\n";
 
-    _strcat(str, str2);
-    write(STDOUT_FILENO, str, _strlen(str));
-    return (1);
+	_strcat(str, str2);
+	write(STDOUT_FILENO, str, _strlen(str));
+	return (1);
 }
 
 /**
@@ -66,13 +66,13 @@ int displayHelpMenu(void)
  */
 int helpExit(config *build)
 {
-    char str[82] = "exit: exit [n]\n\tExit the shell.\n\n\t";
-    char *str2 = "Exit with a status of n, or if n is omitted, 0.\n";
+	char str[82] = "exit: exit [n]\n\tExit the shell.\n\n\t";
+	char *str2 = "Exit with a status of n, or if n is omitted, 0.\n";
 
-    (void)build;
-    _strcat(str, str2);
-    write(STDOUT_FILENO, str, _strlen(str));
-    return (1);
+	(void)build;
+	_strcat(str, str2);
+	write(STDOUT_FILENO, str, _strlen(str));
+	return (1);
 }
 
 /**
@@ -82,11 +82,11 @@ int helpExit(config *build)
  */
 int helpEnv(config *build)
 {
-    char str[] = "env: env\n\tPrint the environment.\n";
+	char str[] = "env: env\n\tPrint the environment.\n";
 
-    (void)build;
-    write(STDOUT_FILENO, str, _strlen(str));
-    return (1);
+	(void)build;
+	write(STDOUT_FILENO, str, _strlen(str));
+	return (1);
 }
 
 /**
@@ -96,9 +96,9 @@ int helpEnv(config *build)
  */
 int helpHistory(config *build)
 {
-    char str[] = "history: history\n\tNot supported in this version.\n";
+	char str[] = "history: history\n\tNot supported in this version.\n";
 
-    (void)build;
-    write(STDOUT_FILENO, str, _strlen(str));
-    return (1);
+	(void)build;
+	write(STDOUT_FILENO, str, _strlen(str));
+	return (1);
 }

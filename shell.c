@@ -142,9 +142,9 @@ void convertLLtoArr(config *build)
 	size_t count = 0;
 	char **envList = NULL;
 	linked_l *tmp = build->env;
-
 	count = list_len(build->env);
 	envList = malloc(sizeof(char *) * (count + 1));
+
 	if (!envList)
 	{
 		perror("Malloc failed\n");

@@ -8,7 +8,7 @@
  */
 void get_null_bytes(char *str, unsigned int index)
 {
-    str[index] = '\0';
+	str[index] = '\0';
 }
 
 /** get_prompt - accepts users inputs
@@ -16,7 +16,7 @@ void get_null_bytes(char *str, unsigned int index)
  */
 void get_prompt(void)
 {
-    write(STDERR_FILENO, "$ ", 2);
+	write(STDERR_FILENO, "$ ", 2);
 }
 
 /** put_new_line - prints a newline
@@ -24,7 +24,7 @@ void get_prompt(void)
  */
 void put_new_line(void)
 {
-    write(STDOUT_FILENO, "\n", 1);
+	write(STDOUT_FILENO, "\n", 1);
 }
 
 /** handle_sigint - a function to handle singal integers
@@ -32,9 +32,9 @@ void put_new_line(void)
  */
 void handle_sigint(int sigint)
 {
-    (void)sigint;
-    signal(SIGINT, handle_sigint);
-    put_new_line();
-    put_new_line();
-    fflush(stdout);
+	(void)sigint;
+	signal(SIGINT, handle_sigint);
+	put_new_line();
+	put_new_line();
+	fflush(stdout);
 }

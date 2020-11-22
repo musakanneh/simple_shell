@@ -8,27 +8,27 @@
  */
 linked_l *addNode(linked_l **head, char *str)
 {
-    linked_l *newNode;
-    char *newStr;
+	linked_l *newNode;
+	char *newStr;
 
-    if (!str)
-        return (NULL);
-    newNode = malloc(sizeof(linked_l));
-    if (!newNode)
-    {
-        perror("Malloc failed\n");
-        exit(errno);
-    }
-    newStr = _strdup(str);
-    if (!newStr)
-    {
-        perror("Malloc failed\n");
-        exit(errno);
-    }
-    newNode->string = newStr;
-    newNode->next = *head;
-    *head = newNode;
-    return (*head);
+	if (!str)
+		return (NULL);
+	newNode = malloc(sizeof(linked_l));
+	if (!newNode)
+	{
+		perror("Malloc failed\n");
+		exit(errno);
+	}
+	newStr = _strdup(str);
+	if (!newStr)
+	{
+		perror("Malloc failed\n");
+		exit(errno);
+	}
+	newNode->string = newStr;
+	newNode->next = *head;
+	*head = newNode;
+	return (*head);
 }
 
 /**
@@ -39,36 +39,36 @@ linked_l *addNode(linked_l **head, char *str)
  */
 linked_l *addNodeEnd(linked_l **head, char *str)
 {
-    linked_l *newNode;
-    linked_l *last = *head;
-    char *newStr;
+	linked_l *newNode;
+	linked_l *last = *head;
+	char *newStr;
 
-    if (!str)
-        return (NULL);
-    newNode = malloc(sizeof(linked_l));
-    if (!newNode)
-    {
-        perror("Malloc failed\n");
-        exit(errno);
-    }
-    newStr = _strdup(str);
-    if (!newStr)
-    {
-        free(newNode);
-        perror("Malloc failed\n");
-        exit(errno);
-    }
-    newNode->string = newStr;
-    newNode->next = NULL;
-    if (!*head)
-    {
-        *head = newNode;
-        return (newNode);
-    }
-    while (last->next)
-        last = last->next;
-    last->next = newNode;
-    return (last);
+	if (!str)
+		return (NULL);
+	newNode = malloc(sizeof(linked_l));
+	if (!newNode)
+	{
+		perror("Malloc failed\n");
+		exit(errno);
+	}
+	newStr = _strdup(str);
+	if (!newStr)
+	{
+		free(newNode);
+		perror("Malloc failed\n");
+		exit(errno);
+	}
+	newNode->string = newStr;
+	newNode->next = NULL;
+	if (!*head)
+	{
+		*head = newNode;
+		return (newNode);
+	}
+	while (last->next)
+		last = last->next;
+	last->next = newNode;
+	return (last);
 }
 
 /**
@@ -78,17 +78,17 @@ linked_l *addNodeEnd(linked_l **head, char *str)
  */
 size_t printList(const linked_l *h)
 {
-    register int count = 0;
+	register int count = 0;
 
-    while (h)
-    {
-        write(STDOUT_FILENO, h->string, _strlen(h->string));
-        put_new_line();
-        h = h->next;
-        count++;
-    }
+	while (h)
+	{
+		write(STDOUT_FILENO, h->string, _strlen(h->string));
+		put_new_line();
+		h = h->next;
+		count++;
+	}
 
-    return (count);
+	return (count);
 }
 
 /**
@@ -100,29 +100,29 @@ size_t printList(const linked_l *h)
  */
 int deleteNodeAtIndex(linked_l **head, unsigned int index)
 {
-    linked_l *current;
-    linked_l *next;
+	linked_l *current;
+	linked_l *next;
 
-    register uint i;
+	register uint i;
 
-    if (!head || !(*head))
-        return (-1);
-    current = *head;
-    if (!index)
-    {
-        *head = current->next;
-        free(current);
-        return (1);
-    }
-    for (i = 0; current && i < index - 1; i++)
-        current = current->next;
-    if (!current || !(current->next))
-        return (-1);
-    next = current->next->next;
-    free(current->next->string);
-    free(current->next);
-    current->next = next;
-    return (1);
+	if (!head || !(*head))
+		return (-1);
+	current = *head;
+	if (!index)
+	{
+		*head = current->next;
+		free(current);
+		return (1);
+	}
+	for (i = 0; current && i < index - 1; i++)
+		current = current->next;
+	if (!current || !(current->next))
+		return (-1);
+	next = current->next->next;
+	free(current->next->string);
+	free(current->next);
+	current->next = next;
+	return (1);
 }
 
 /**
@@ -132,12 +132,12 @@ int deleteNodeAtIndex(linked_l **head, unsigned int index)
  */
 size_t list_len(linked_l *h)
 {
-    register unsigned int count = 0;
+	register unsigned int count = 0;
 
-    while (h)
-    {
-        h = h->next;
-        count++;
-    }
-    return (count);
+	while (h)
+	{
+		h = h->next;
+		count++;
+	}
+	return (count);
 }

@@ -7,19 +7,19 @@
  */
 int cdFunc(config *build)
 {
-    register uint count = 0;
-    _Bool ableToChange = false;
+	register uint count = 0;
+	_Bool ableToChange = false;
 
-    count = countArgs(build->args);
-    if (count == 1)
-        ableToChange = cdToHome(build);
-    else if (count == 2 && _strcmp(build->args[1], "-") == 0)
-        ableToChange = cdToPrevious(build);
-    else
-        ableToChange = cdToCustom(build);
-    if (ableToChange)
-        updateEnviron(build);
-    return (1);
+	count = countArgs(build->args);
+	if (count == 1)
+		ableToChange = cdToHome(build);
+	else if (count == 2 && _strcmp(build->args[1], "-") == 0)
+		ableToChange = cdToPrevious(build);
+	else
+		ableToChange = cdToCustom(build);
+	if (ableToChange)
+		updateEnviron(build);
+	return (1);
 }
 
 /**
@@ -29,20 +29,20 @@ int cdFunc(config *build)
  */
 _Bool cdToHome(config *build)
 {
-    register int i;
-    char *str, *ptr;
+	register int i;
+	char *str, *ptr;
 
-    i = searchNode(build->env, "HOME");
-    if (i == -1)
-    {
-        return (true);
-    }
-    str = getNodeAtIndex(build->env, i);
-    ptr = _strchr(str, '=');
-    ptr++;
-    chdir(ptr);
-    free(str);
-    return (true);
+	i = searchNode(build->env, "HOME");
+	if (i == -1)
+	{
+		return (true);
+	}
+	str = getNodeAtIndex(build->env, i);
+	ptr = _strchr(str, '=');
+	ptr++;
+	chdir(ptr);
+	free(str);
+	return (true);
 }
 
 /**
@@ -53,27 +53,27 @@ _Bool cdToHome(config *build)
  */
 _Bool cdToPrevious(config *build)
 {
-    register int i;
-    char *str, *ptr;
-    char *current = NULL;
+	register int i;
+	char *str, *ptr;
+	char *current = NULL;
 
-    current = getcwd(current, 0);
-    i = searchNode(build->env, "OLDPWD");
-    if (i == -1)
-    {
-        chdir(current);
-        write(STDOUT_FILENO, current, _strlen(current));
-        put_new_line();
-        return (true);
-    }
-    str = getNodeAtIndex(build->env, i);
-    ptr = _strchr(str, '=');
-    ptr++;
-    chdir(ptr);
-    write(STDOUT_FILENO, ptr, _strlen(ptr));
-    put_new_line();
-    free(str);
-    return (true);
+	current = getcwd(current, 0);
+	i = searchNode(build->env, "OLDPWD");
+	if (i == -1)
+	{
+		chdir(current);
+		write(STDOUT_FILENO, current, _strlen(current));
+		put_new_line();
+		return (true);
+	}
+	str = getNodeAtIndex(build->env, i);
+	ptr = _strchr(str, '=');
+	ptr++;
+	chdir(ptr);
+	write(STDOUT_FILENO, ptr, _strlen(ptr));
+	put_new_line();
+	free(str);
+	return (true);
 }
 
 /**
@@ -83,16 +83,16 @@ _Bool cdToPrevious(config *build)
  */
 _Bool cdToCustom(config *build)
 {
-    register int changeStatus;
+	register int changeStatus;
 
-    changeStatus = chdir(build->args[1]);
-    if (changeStatus == -1)
-    {
-        errno = EBADCD;
-        handle_errors(build);
-        return (false);
-    }
-    return (true);
+	changeStatus = chdir(build->args[1]);
+	if (changeStatus == -1)
+	{
+		errno = EBADCD;
+		handle_errors(build);
+		return (false);
+	}
+	return (true);
 }
 
 /**
@@ -102,9 +102,9 @@ _Bool cdToCustom(config *build)
  */
 _Bool updateEnviron(config *build)
 {
-    register int i;
+	register int i;
 
-    i = updateOld(build);
-    updateCur(build, i);
-    return (true);
+	i = updateOld(build);
+	updateCur(build, i);
+	return (true);
 }
