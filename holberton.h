@@ -44,7 +44,6 @@ typedef struct linkedList
 	struct linkedList *next;
 } linked_l;
 
-
 /**
  * struct configurations - configuration of build settings
  * @env: linked list of local env variables
@@ -99,7 +98,7 @@ int cdFunc(config *);
 _Bool cdToHome(config *build);
 _Bool cdToPrevious(config *build);
 _Bool cdToCustom(config *build);
-_Bool updateEnviron(config *build); 
+_Bool updateEnviron(config *build);
 
 /* cd2 */
 int updateOld(config *build);
@@ -119,8 +118,8 @@ int helpEnv(config *build);
 int helpHistory(config *build);
 
 /* help2 */
-int helpAlias(config *build);
-int helpCd(config *biuld);
+int help_alias(config *build);
+int help_cd(config *biuld);
 int helpSetenv(config *build);
 int helpUnsetenv(config *build);
 int helpHelp(config *build);

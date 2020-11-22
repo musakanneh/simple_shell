@@ -5,7 +5,7 @@
  * @build: input build
  * Return: Always 1
  */
-int helpAlias(config *build)
+int help_alias(config *build)
 {
 	char str[] = "alias: alias\n\tNot supported in this version.\n";
 
@@ -19,7 +19,7 @@ int helpAlias(config *build)
  * @build: input build
  * Return: Always 1
  */
-int helpCd(config *build)
+int help_cd(config *build)
 {
 	char str[192] = "cd: cd [destination]\n\t";
 	char *str2 = "Change directory to target destination.\n\t";
