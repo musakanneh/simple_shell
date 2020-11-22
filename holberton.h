@@ -84,7 +84,7 @@ typedef struct builtInCommands
 /* main */
 config *configInit(config *build);
 
-/* built_ins */
+/* built_ins  */
 _Bool findBuiltIns(config *build);
 int exitFunc(config *build);
 int historyFunc(config *build);
