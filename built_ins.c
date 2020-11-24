@@ -41,7 +41,7 @@ int exitFunc(config *build)
 {
 	register int argCount, exitStatus;
 
-	argCount = countArgs(build->args);
+	argCount = count_args(build->args);
 	if (argCount == 1)
 	{
 		free_member(build);

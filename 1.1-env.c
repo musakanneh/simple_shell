@@ -22,7 +22,7 @@ int setenvFunc(config *build)
     register int index, len;
     static char buffer[BUFSIZE];
 
-    if (countArgs(build->args) != 3)
+    if (count_args(build->args) != 3)
     {
         errno = EWSIZE;
         handle_errors(build);

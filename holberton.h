@@ -89,8 +89,8 @@ int exitFunc(config *build);
 int historyFunc(config *build);
 int aliasFunc(config *build);
 
-/* built_in_helpers*/
-int countArgs(char **args);
+/* built_in_controls*/
+int count_args(char **args);
 int _atoi(char *s);
 
 /* cd */

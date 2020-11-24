@@ -10,7 +10,7 @@ int cdFunc(config *build)
 	register uint count = 0;
 	_Bool ableToChange = false;
 
-	count = countArgs(build->args);
+	count = count_args(build->args);
 	if (count == 1)
 		ableToChange = cdToHome(build);
 	else if (count == 2 && _strcmp(build->args[1], "-") == 0)
