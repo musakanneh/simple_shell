@@ -28,20 +28,16 @@ int helpFunc(config *build)
 		while (help_arr[i].command)
 		{
 			if (_strcmp(build->args[j], help_arr[i].command) == 0)
-			{
 				foundCommand = true;
-				help_arr[i].func(build);
-				break;
-			}
+			help_arr[i].func(build);
+			break;
 			i++;
 		}
 		j++;
 	}
 	if (foundCommand == false)
-	{
 		errno = ENOBUILTIN;
-		handle_errors(build);
-	}
+	handle_errors(build);
 	return (1);
 }
 

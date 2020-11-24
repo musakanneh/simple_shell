@@ -8,31 +8,31 @@
  */
 int main(int ac, char **av)
 {
-    config build;
+	config build;
 
-    (void)ac;
-    signal(SIGINT, handle_sigint);
-    configInit(&build);
-    build.shellName = av[0];
-    shell(&build);
-    return (0);
+	(void)ac;
+	signal(SIGINT, handle_sigint);
+	config_init(&build);
+	build.shell_name = av[0];
+	shell(&build);
+	return (0);
 }
 
 /**
- * configInit - initialize member values for config struct
+ * config_init - initialize member values for config struct
  * @build: input build
  * Return: build with initialized members
  */
-config *configInit(config *build)
+config *config_init(config *build)
 {
-    build->env = generateLinkedList(environ);
-    build->envList = NULL;
-    build->args = NULL;
-    build->buffer = NULL;
-    build->path = _getenv("PATH", environ);
-    build->fullPath = NULL;
-    build->lineCounter = 0;
-    build->shellName = NULL;
-    build->errorStatus = 0;
-    return (build);
+	build->env = generateLinkedList(environ);
+	build->env_list = NULL;
+	build->args = NULL;
+	build->buffer = NULL;
+	build->path = _getenv("PATH", environ);
+	build->full_path = NULL;
+	build->count_line = 0;
+	build->shell_name = NULL;
+	build->error_status = 0;
+	return (build);
 }

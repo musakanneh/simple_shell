@@ -35,12 +35,12 @@ int updateOld(config *build)
 }
 
 /**
- * updateCur - updates PWD to accurately reflect current directory
+ * update_cur_dir - updates PWD to accurately reflect current directory
  * @build: input build
  * @index: index in linked list of where to insert PWD env var
  * Return: true on success, false on failure
  */
-_Bool updateCur(config *build, int index)
+_Bool update_cur_dir(config *build, int index)
 {
 	static char tmp[BUFSIZE], cwd[BUFSIZE];
 

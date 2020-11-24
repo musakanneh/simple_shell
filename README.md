@@ -1,6 +1,6 @@
 # Simple Shell
 What really happens when you type a command into a shell? How
-does it know how to run programs and interprets user inputs? Well, you are in the right pod! This project dissects the shell program that allows you to even [explain to anyone](https://fs.blog/2012/04/feynman-technique/) without the use of the internet :) Excited, noe let's dig in!
+does it know how to run programs and interprets user inputs? Well, you are in the right pod! This project dissects the shell program that allows you to even [explain to anyone](https://fs.blog/2012/04/feynman-technique/) without the use of the internet :) Excited? noe let's dig in!
 ![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
 ## Description
 The simple shell is an application that reads lines from either a file or the terminal, interprets them, and executes them. I most cases, it provides a command line user interface for Unix-like operating systems, where can interactively type directly to the running shell or pipe in shell scripts. [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we designed and implemented a simple UNIX command line interpreter from the ground ^-^.

@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * countArgs - count the number of arguments
+ * count_args - count the number of arguments
  * @args: input array of strings
  * Return: number of strings
  */
@@ -26,7 +26,7 @@ int _atoi(char *s)
 {
 	register int i = 0;
 	unsigned long num = 0;
-	
+
 	if (num > INT_MAX)
 	{
 		return (-1);

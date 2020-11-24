@@ -2,6 +2,8 @@
 
 /**
  * checkPath - searches $PATH for directory of command
+ *
+ * Description: checks the path of a given command
  * @build: input build
  */
 _Bool checkPath(config *build)
@@ -21,7 +23,7 @@ _Bool checkPath(config *build)
 		tmp = inLoop ? tok - 2 : tok;
 		if (*tmp == 0 && stat(build->args[0], &st) == 0)
 		{
-			build->fullPath = build->args[0];
+			build->full_path = build->args[0];
 			free(copy);
 			return (true);
 		}
@@ -33,14 +35,14 @@ _Bool checkPath(config *build)
 		if (stat(buffer, &st) == 0)
 		{
 			free(copy);
-			build->fullPath = buffer;
+			build->full_path = buffer;
 			return (true);
 		}
 		get_null_bytes(buffer, 0);
 		tok = _strtok(NULL, delim);
 		inLoop = true;
 	}
-	build->fullPath = build->args[0];
+	build->full_path = build->args[0];
 	free(copy);
 	return (false);
 }
@@ -58,13 +60,13 @@ _Bool checkEdgeCases(config *build)
 	copy = _strdup(build->path);
 	if (!copy)
 	{
-		build->fullPath = build->args[0];
+		build->full_path = build->args[0];
 		free(copy);
 		return (true);
 	}
 	if (*copy == ':' && stat(build->args[0], &st) == 0)
 	{
-		build->fullPath = build->args[0];
+		build->full_path = build->args[0];
 		free(copy);
 		return (true);
 	}

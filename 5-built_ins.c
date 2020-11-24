@@ -8,12 +8,13 @@
 _Bool findBuiltIns(config *build)
 {
 	register int i = 0;
+
 	type_b getBuiltIns[] = {
 		{"exit", exitFunc},
 		{"env", envFunc},
 		{"history", historyFunc},
 		{"alias", aliasFunc},
-		{"cd", cdFunc},
+		{"cd", implement_cd},
 		{"setenv", setenvFunc},
 		{"unsetenv", unsetenvFunc},
 		{"help", helpFunc},
@@ -45,8 +46,8 @@ int exitFunc(config *build)
 	if (argCount == 1)
 	{
 		free_member(build);
-		if (build->errorStatus)
-			exit(build->errorStatus);
+		if (build->error_status)
+			exit(build->error_status);
 		exit(EXIT_SUCCESS);
 	}
 	else if (argCount > 1)
@@ -55,7 +56,7 @@ int exitFunc(config *build)
 		if (exitStatus == -1)
 		{
 			errno = EILLEGAL;
-			build->errorStatus = 2;
+			build->error_status = 2;
 			handle_errors(build);
 			return (0);
 		}

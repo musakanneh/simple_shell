@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _shell - a function that executes the loop functionalities
+ * shell - a function that executes the loop functionalities
  * Return: Nothing
  */
 void shell(config *build)
@@ -9,7 +9,7 @@ void shell(config *build)
 	while (1)
 	{
 		validate_line(build);
-		if (splitString(build) == 0)
+		if (split_string(build) == 0)
 		{
 			continue;
 		}
@@ -18,12 +18,15 @@ void shell(config *build)
 			continue;
 		}
 		checkPath(build);
-		forkAndExecute(build);
+		fork_and_execute(build);
 	}
 }
 
 /**
- * validate_line - a function to handle the prompts
+ * validate_line - a function to handle the user inputs
+ * 
+ * Description: gets user inputs, checks input against
+ * build constraints, string edge cases and takes endless inputs
  * Return: Nothing
  */
 void validate_line(config *build)
@@ -33,8 +36,8 @@ void validate_line(config *build)
 	char *ptr, *ptr2;
 
 	build->args = NULL;
-	build->envList = NULL;
-	build->lineCounter++;
+	build->env_list = NULL;
+	build->count_line++;
 	if (isatty(STDIN_FILENO))
 	{
 		get_prompt();
@@ -47,15 +50,15 @@ void validate_line(config *build)
 		{
 			put_new_line();
 		}
-		if (build->errorStatus)
+		if (build->error_status)
 		{
-			exit(build->errorStatus);
+			exit(build->error_status);
 		}
 		exit(EXIT_SUCCESS);
 	}
 	ptr = _strchr(build->buffer, '\n');
 	ptr2 = _strchr(build->buffer, '\t');
-	if (ptr || ptr2)
+	if (ptr || ptr2 != NULL)
 	{
 		get_null_bytes(build->buffer, len - 1);
 	}
@@ -63,14 +66,14 @@ void validate_line(config *build)
 }
 
 /**
- * stripComments - remove comments from input string
+ * strip_comments - remove comments from input string
  * @str: input string
  * Return: length of remaining string
  */
 void strip_comments(char *str)
 {
 	register int i = 0;
-	_Bool notFirst = false;
+	_Bool is_not_first = false;
 
 	while (str[i])
 	{
@@ -79,7 +82,7 @@ void strip_comments(char *str)
 			get_null_bytes(str, i);
 			return;
 		}
-		if (notFirst)
+		if (is_not_first)
 		{
 			if (str[i] == '#' && str[i - 1] == ' ')
 			{
@@ -88,34 +91,36 @@ void strip_comments(char *str)
 			}
 		}
 		i++;
-		notFirst = true;
+		is_not_first = true;
 	}
 }
 
 /**
  * fork_and_execute - fork current build and execute processes
+ * 
+ * Description: 
  * @build: input build
  */
-void forkAndExecute(config *build)
+void fork_and_execute(config *build)
 {
 	int status;
 	pid_t f1 = fork();
 
-	convertLLtoArr(build);
+	convert_llist_to_arr(build);
 	if (f1 == -1)
 	{
 		perror("error\n");
 		free_member(build);
-		free_args(build->envList);
+		free_args(build->env_list);
 		exit(1);
 	}
 	if (f1 == 0)
 	{
-		if (execve(build->fullPath, build->args, build->envList) == -1)
+		if (execve(build->full_path, build->args, build->env_list) == -1)
 		{
 			handle_errors(build);
 			free_member(build);
-			free_args(build->envList);
+			free_args(build->env_list);
 			if (errno == ENOENT)
 				exit(127);
 			if (errno == EACCES)
@@ -126,36 +131,36 @@ void forkAndExecute(config *build)
 	{
 		wait(&status);
 		if (WIFEXITED(status))
-			build->errorStatus = WEXITSTATUS(status);
+			build->error_status = WEXITSTATUS(status);
 		free_args_and_buffer(build);
-		free_args(build->envList);
+		free_args(build->env_list);
 	}
 }
 
 /**
- * convertLLtoArr - convert linked list to array
+ * convert_llist_to_arr - convert linked list to array
  * @build: input build
  */
-void convertLLtoArr(config *build)
+void convert_llist_to_arr(config *build)
 {
 	register int i = 0;
 	size_t count = 0;
-	char **envList = NULL;
+	char **env_list = NULL;
 	linked_l *tmp = build->env;
 	count = list_len(build->env);
-	envList = malloc(sizeof(char *) * (count + 1));
+	env_list = malloc(sizeof(char *) * (count + 1));
 
-	if (!envList)
+	if (!env_list)
 	{
 		perror("Malloc failed\n");
 		exit(1);
 	}
 	while (tmp)
 	{
-		envList[i] = _strdup(tmp->string);
+		env_list[i] = _strdup(tmp->string);
 		tmp = tmp->next;
 		i++;
 	}
-	envList[i] = NULL;
-	build->envList = envList;
+	env_list[i] = NULL;
+	build->env_list = env_list;
 }

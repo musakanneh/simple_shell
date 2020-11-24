@@ -1,33 +1,41 @@
 #include "holberton.h"
 
 /**
- * cdFunc - execute cd builtin
+ * implement_cd - execute cd builtin
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
-int cdFunc(config *build)
+int implement_cd(config *build)
 {
 	register uint count = 0;
-	_Bool ableToChange = false;
+	_Bool can_change = false;
 
 	count = count_args(build->args);
 	if (count == 1)
-		ableToChange = cdToHome(build);
+	{
+		can_change = cd_to_home(build);
+	}
 	else if (count == 2 && _strcmp(build->args[1], "-") == 0)
-		ableToChange = cdToPrevious(build);
+	{
+		can_change = cd_to_previous(build);
+	}
 	else
-		ableToChange = cdToCustom(build);
-	if (ableToChange)
-		updateEnviron(build);
+	{
+		can_change = cd_to_custom(build);
+	}
+	if (can_change)
+	{
+		update_environ(build);
+	}
 	return (1);
 }
 
 /**
- * cdToHome - change directory to home
+ * cd_to_home - change directory to home
  * @build: input build
  * Return: true on success, false on failure
  */
-_Bool cdToHome(config *build)
+_Bool cd_to_home(config *build)
 {
 	register int i;
 	char *str, *ptr;
@@ -46,12 +54,12 @@ _Bool cdToHome(config *build)
 }
 
 /**
- * cdToPrevious - change directory to previous directory -
+ * cd_to_previous - change directory to previous directory -
  * address is found in OLDPWD env var
  * @build: input build
  * Return: true on success, false on failure
  */
-_Bool cdToPrevious(config *build)
+_Bool cd_to_previous(config *build)
 {
 	register int i;
 	char *str, *ptr;
@@ -77,11 +85,11 @@ _Bool cdToPrevious(config *build)
 }
 
 /**
- * cdToCustom - change directory to what user inputs in
+ * cd_to_custom - change directory to what user inputs in
  * @build: input build
  * Return: true on success, false on failure
  */
-_Bool cdToCustom(config *build)
+_Bool cd_to_custom(config *build)
 {
 	register int changeStatus;
 
@@ -100,11 +108,11 @@ _Bool cdToCustom(config *build)
  * @build: input build
  * Return: true on success false on failure
  */
-_Bool updateEnviron(config *build)
+_Bool update_environ(config *build)
 {
 	register int i;
 
 	i = updateOld(build);
-	updateCur(build, i);
+	update_cur_dir(build, i);
 	return (true);
 }
