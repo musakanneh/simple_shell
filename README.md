@@ -1,36 +1,28 @@
 # Simple Shell
+What really happens when you type a command into a shell? How
+does it know how to run programs and interprets user inputs? Well, you are in the right pod! This project dissects the shell program that allows you to even [explain to anyone](https://fs.blog/2012/04/feynman-technique/) without the use of the internet :) Excited, noe let's dig in!
 ![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
 ## Description
-A Unix shell is a command-line interpreter or shell that provides a command line user interface for Unix-like operating systems. The shell is both an interactive command language and a scripting language, and is used by the operating system to control the execution of the system using shell scripts, [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we will be implementing a simple UNIX command interpreter.
+A Unix shell is a command-line interpreter or shell that provides a command line user interface for Unix-like operating systems. The shell is both an interactive command language and a scripting language, and is used by the operating system to control the execution of the system using shell scripts, [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we will be implementing a simple UNIX command interpreter from the ground ^-^. 
 
-## Project Objectives
-- Who designed and implemented the original Unix operating system
-- Who wrote the first version of the UNIX shell
-- Who invented the B programming language (the direct predecessor to the C programming language)
-- Who is Ken Thompson
-- How does a shell work
-- What is a pid and a ppid
+## Things to keep in mind as you explore this work
+- How does a shell work?
+- What is a pid and a ppid?
 - How to manipulate the environment of the current process
-- What is the difference between a function and a system call
-- How to create processes
-- What are the three prototypes of main
-- How does the shell use the PATH to find the programs
-- How to execute another program with the execve system call
-- How to suspend the execution of a process until one of its children terminates
-- What is EOF / “end-of-file”?
+- How to create processes?
+- How does the shell use the PATH to find the programs?
+- How to execute another program with the execve system call?
+- How to suspend the execution of a process until one of its children terminates? What is EOF / “end-of-file”?
 ## General Requirements
-- Allowed editors: vi, vim, emacs
-- All your files will be compiled on Ubuntu 14.04 LTS
-- Our C programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-- All our files ends end with a new line, with no memory leaks
-- Our code will use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-- Our files contain no more than 5 functions
-- Our header files will be include guarded
+- All our files will be compiled on Ubuntu 14.04 LTS
+- Our C programs and functions will be compiled with gcc 4.8.4 using the flags ```-Wall -Werror -Wextra and -pedantic ```
+- Our files ends end with a new line, with no memory leaks
+- Our code will use the [Betty style](https://github.com/holbertonschool/Betty). It will be checked using ```betty-style.pl and betty-doc.pl```.
 - system calls will be used when necessary ([why?](https://www.quora.com/Why-are-system-calls-expensive-in-operating-systems))
 
 ## Program Output
-- Our program have the exact same output as sh (/bin/sh) as well as the exact same error output.
-- The only difference is when you print an error, the name of the program must be equivalent to your argv[0]
+- Our program have the exact same output as ```sh (/bin/sh)``` as well as the exact same error output.
+- The only difference is when you print an error, the name of the program must be equivalent to the ``argv[0]``
 
 ### Example of error with sh:
 ```Bash
@@ -40,9 +32,9 @@ $ echo "qwerty" | /bin/../bin/sh
 /bin/../bin/sh: 1: qwerty: not found
 $
 ```
-### Same error with your program hsh:
+### Same error with our program hsh:
 ```Bash
-$ echo "qwerty" | ./hsh
+$ echo "kanneh" | ./hsh
 ./hsh: 1: qwerty: not found
 $ echo "qwerty" | ./././hsh
 ./././hsh: 1: qwerty: not found
