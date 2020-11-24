@@ -3,17 +3,9 @@ What really happens when you type a command into a shell? How
 does it know how to run programs and interprets user inputs? Well, you are in the right pod! This project dissects the shell program that allows you to even [explain to anyone](https://fs.blog/2012/04/feynman-technique/) without the use of the internet :) Excited, noe let's dig in!
 ![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.jpeg)
 ## Description
-A Unix shell is a command-line interpreter or shell that provides a command line user interface for Unix-like operating systems. The shell is both an interactive command language and a scripting language, and is used by the operating system to control the execution of the system using shell scripts, [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we will be implementing a simple UNIX command interpreter from the ground ^-^. 
+The simple shell is an application that reads lines from either a file or the terminal, interprets them, and executes them. I most cases, it provides a command line user interface for Unix-like operating systems, where can interactively type directly to the running shell or pipe in shell scripts. [read more](https://en.wikipedia.org/wiki/Unix_shell). In this project, we designed and implemented a simple UNIX command line interpreter from the ground ^-^.
 
-## Things to keep in mind as you explore this work
-- How does a shell work?
-- What is a pid and a ppid?
-- How to manipulate the environment of the current process
-- How to create processes?
-- How does the shell use the PATH to find the programs?
-- How to execute another program with the execve system call?
-- How to suspend the execution of a process until one of its children terminates? What is EOF / “end-of-file”?
-## General Requirements
+## General requirements to consider
 - All our files will be compiled on Ubuntu 14.04 LTS
 - Our C programs and functions will be compiled with gcc 4.8.4 using the flags ```-Wall -Werror -Wextra and -pedantic ```
 - Our files ends end with a new line, with no memory leaks
@@ -26,9 +18,9 @@ A Unix shell is a command-line interpreter or shell that provides a command line
 
 ### Example of error with sh:
 ```Bash
-$ echo "qwerty" | /bin/sh
+$ echo "Ian" | /bin/sh
 /bin/sh: 1: qwerty: not found
-$ echo "qwerty" | /bin/../bin/sh
+$ echo "Ian" | /bin/../bin/sh
 /bin/../bin/sh: 1: qwerty: not found
 $
 ```
@@ -36,11 +28,12 @@ $
 ```Bash
 $ echo "kanneh" | ./hsh
 ./hsh: 1: qwerty: not found
-$ echo "qwerty" | ./././hsh
+$ echo "kanneh" | ./././hsh
 ./././hsh: 1: qwerty: not found
 $
 ```
-## List of allowed functions and system calls
+## List of functions and system calls we used
+```Bash 
 - access (man 2 access)
 - chdir (man 2 chdir)
 - close (man 2 close)
@@ -71,9 +64,10 @@ $
 - wait3 (man 2 wait3)
 - wait4 (man 2 wait4)
 - write (man 2 write)
+```
 
-## Compilation
-Our shell will be compiled this way:
+## Project Compilation
+You can compile our shell using:
 ```Bash
 gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 ```
@@ -106,31 +100,14 @@ $
 1. Write a beautiful code that passes the Betty checks
 2. Write a UNIX command line interpreter.
 
-#### Our Shell will have to:
-- Display a prompt and wait for the user to type a command. A command line always ends with a new line.
+## Functionalities
+#### Our Shell does the following:
+- Display a prompt and wait for the user to type a command, ending wih a new line.
 - The prompt is displayed again each time a command has been executed.
 - The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
 - The command lines are made only of one word. No arguments will be passed to programs.
-- If an executable cannot be found, print an error message and display the prompt again.
-- We will handle handle errors.
-- We have to handle the “end of file” condition (Ctrl+D)
-
-#### Our Shell will not have to:
-- use the PATH
-- implement built-ins
-- handle special characters : ", ', `, \, *, &, #
-- be able to move the cursor
-- handle commands with arguments
-3. Simple shell 0.1 +
-    - Handle command lines with arguments
-4. Simple shell 0.2 +
-    - Handle the PATH
-5. Simple shell 0.3 +
-    - Implement the exit built-in, that exits the shell
-    - Usage: exit
-    - You don’t have to handle any argument to the built-in exit
-6. Simple shell 0.4 +
-    - Implement the env built-in, that prints the current environment
+- If an executable cannot be found, an error message is displayed to the user, and then display the prompt again.
+- We will handle errors, including the “end of file” condition (Ctrl+D)
 
 ## Using the man_1_simple_shell page
 - Display the page
