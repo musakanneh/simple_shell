@@ -6,10 +6,10 @@
  * @str: string to be added on new node
  * Return: address of new head;
  */
-linked_l *addNode(linked_l **head, char *str)
+linked_l *add_node_to_front(linked_l **head, char *str)
 {
 	linked_l *newNode;
-	char *newStr;
+	char *new_str;
 
 	if (!str)
 		return (NULL);
@@ -19,13 +19,13 @@ linked_l *addNode(linked_l **head, char *str)
 		perror("Malloc failed\n");
 		exit(errno);
 	}
-	newStr = _strdup(str);
-	if (!newStr)
+	new_str = _strdup(str);
+	if (!new_str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
 	}
-	newNode->string = newStr;
+	newNode->string = new_str;
 	newNode->next = *head;
 	*head = newNode;
 	return (*head);
@@ -37,7 +37,7 @@ linked_l *addNode(linked_l **head, char *str)
  * @str: string to be added to linked list
  * Return: address of new node
  */
-linked_l *addNodeEnd(linked_l **head, char *str)
+linked_l *add_node_to_end(linked_l **head, char *str)
 {
 	linked_l *newNode;
 	linked_l *last = *head;
@@ -76,7 +76,7 @@ linked_l *addNodeEnd(linked_l **head, char *str)
  * @h: pointer to head of list
  * Return: number of elements
  */
-size_t printList(const linked_l *h)
+size_t print_list(const linked_l *h)
 {
 	register int count = 0;
 
@@ -98,7 +98,7 @@ size_t printList(const linked_l *h)
  * @index: index of node to be deleted
  * Return: 1 if success, -1 if fail
  */
-int deleteNodeAtIndex(linked_l **head, unsigned int index)
+int delete_node_at_index(linked_l **head, unsigned int index)
 {
 	linked_l *current;
 	linked_l *next;

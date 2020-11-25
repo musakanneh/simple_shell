@@ -14,11 +14,11 @@ void shell(config *build)
 		{
 			continue;
 		}
-		if (findBuiltIns(build) == 1)
+		if (find_built_ins(build) == 1)
 		{
 			continue;
 		}
-		checkPath(build);
+		check_path(build);
 		fork_and_execute(build);
 	}
 }
@@ -135,7 +135,9 @@ void fork_and_execute(config *build)
 	{
 		wait(&status);
 		if (WIFEXITED(status))
+		{
 			build->error_status = WEXITSTATUS(status);
+		}
 		free_args_and_buffer(build);
 		free_args(build->env_list);
 	}

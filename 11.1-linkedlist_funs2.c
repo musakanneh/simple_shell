@@ -8,7 +8,7 @@
  * Return: index of node with matching string
  */
 
-int searchNode(linked_l *head, char *str)
+int search_node(linked_l *head, char *str)
 {
 	register int len = 0, index = 0, i;
 	linked_l *current;
@@ -49,7 +49,7 @@ linked_l *generateLinkedList(char **array)
 	head = NULL;
 	while (array[i])
 	{
-		addNodeEnd(&head, array[i]);
+		add_node_to_end(&head, array[i]);
 		i++;
 	}
 	return (head);
@@ -62,7 +62,7 @@ linked_l *generateLinkedList(char **array)
  * @str: string to add
  * Return: address of node added
  */
-linked_l *addNodeAtIndex(linked_l **head, int index, char *str)
+linked_l *add_node_at_index(linked_l **head, int index, char *str)
 {
 	register int i = 0;
 	linked_l *newNode, *current;
@@ -109,7 +109,7 @@ linked_l *addNodeAtIndex(linked_l **head, int index, char *str)
  * @index: index of value to be returned
  * Return: address of node at input index
  */
-char *getNodeAtIndex(linked_l *head, unsigned int index)
+char *get_node_at_index(linked_l *head, unsigned int index)
 {
 	register uint count = 0;
 	linked_l *current;

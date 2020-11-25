@@ -1,30 +1,30 @@
 #include "holberton.h"
 
 /**
- * findBuiltIns - validates if command is builtin and executes
+ * find_built_ins - validates if command is builtin and executes
  * @build: input build
  * Return: true if found, false if not
  */
-_Bool findBuiltIns(config *build)
+_Bool find_built_ins(config *build)
 {
 	register int i = 0;
 
-	type_b getBuiltIns[] = {
-		{"exit", exitFunc},
+	type_b get_built_ins[] = {
+		{"exit", exit_function},
 		{"env", envFunc},
 		{"history", historyFunc},
 		{"alias", aliasFunc},
 		{"cd", implement_cd},
 		{"setenv", setenvFunc},
 		{"unsetenv", unsetenvFunc},
-		{"help", helpFunc},
+		{"help", help_function},
 		{NULL, NULL}};
 
-	while (getBuiltIns[i].command)
+	while (get_built_ins[i].command)
 	{
-		if (_strcmp(build->args[0], getBuiltIns[i].command) == 0)
+		if (_strcmp(build->args[0], get_built_ins[i].command) == 0)
 		{
-			getBuiltIns[i].func(build);
+			get_built_ins[i].func(build);
 			free_args_and_buffer(build);
 			return (true);
 		}
@@ -38,7 +38,7 @@ _Bool findBuiltIns(config *build)
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
-int exitFunc(config *build)
+int exit_function(config *build)
 {
 	register int argCount, exitStatus;
 
@@ -47,7 +47,9 @@ int exitFunc(config *build)
 	{
 		free_member(build);
 		if (build->error_status)
+		{
 			exit(build->error_status);
+		}
 		exit(EXIT_SUCCESS);
 	}
 	else if (argCount > 1)

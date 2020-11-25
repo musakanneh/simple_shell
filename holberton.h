@@ -85,8 +85,8 @@ typedef struct builtInCommands
 config *config_init(config *build);
 
 /* --- built_ins --- */
-_Bool findBuiltIns(config *build);
-int exitFunc(config *build);
+_Bool find_built_ins(config *build);
+int exit_function(config *build);
 int historyFunc(config *build);
 int aliasFunc(config *build);
 
@@ -102,23 +102,23 @@ _Bool cd_to_custom(config *build);
 _Bool update_environ(config *build);
 
 /* --- cd2 --- */
-int updateOld(config *build);
+int update_old(config *build);
 _Bool update_cur_dir(config *build, int index);
 
-/* --- env --- */
+/* --- env_variables --- */
 int envFunc(config *build);
 int setenvFunc(config *build);
 int unsetenvFunc(config *build);
 int _isalpha(int c);
 
-/* --- help --- */
-int helpFunc(config *build);
+/* --- help_funs --- */
+int help_function(config *build);
 int displayHelpMenu(void);
 int helpExit(config *build);
 int helpEnv(config *build);
 int helpHistory(config *build);
 
-/* --- help2 --- */
+/* --- help_funs2 --- */
 int help_alias(config *build);
 int help_cd(config *biuld);
 int helpSetenv(config *build);
@@ -158,34 +158,34 @@ _Bool split_string(config *build);
 unsigned int count_words(char *s);
 _Bool is_space(char c);
 
-/* --- string_helpers1 --- */
+/* --- string_controls1 --- */
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);
 
-/* --- string_helpers2 --- */
+/* --- string_controls2 --- */
 char *_strtok(char *str, char *delim);
 int _strcspn(char *string, char *chars);
 char *_strchr(char *s, char c);
 
 /* --- check_path --- */
-_Bool checkPath(config *);
-_Bool checkEdgeCases(config *build);
+_Bool check_path(config *);
+_Bool validate_constraints(config *build);
 
-/* --- llfuncs1 --- */
-linked_l *addNode(linked_l **head, char *str);
-linked_l *addNodeEnd(linked_l **head, char *str);
-size_t printList(const linked_l *h);
-int searchNode(linked_l *head, char *str);
+/* --- linkedlist_funs1 --- */
+linked_l *add_node_to_front(linked_l **head, char *str);
+linked_l *add_node_to_end(linked_l **head, char *str);
+size_t print_list(const linked_l *h);
+int search_node(linked_l *head, char *str);
 size_t list_len(linked_l *h);
 
-/* --- llfuncs2 --- */
-int deleteNodeAtIndex(linked_l **head, unsigned int index);
+/* --- linkedlist_funs2 --- */
+int delete_node_at_index(linked_l **head, unsigned int index);
 linked_l *generateLinkedList(char **array);
-linked_l *addNodeAtIndex(linked_l **head, int index, char *str);
-char *getNodeAtIndex(linked_l *head, unsigned int index);
+linked_l *add_node_at_index(linked_l **head, int index, char *str);
+char *get_node_at_index(linked_l *head, unsigned int index);
 
 /* --- _realloc --- */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

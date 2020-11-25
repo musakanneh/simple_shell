@@ -40,12 +40,12 @@ _Bool cd_to_home(config *build)
 	register int i;
 	char *str, *ptr;
 
-	i = searchNode(build->env, "HOME");
+	i = search_node(build->env, "HOME");
 	if (i == -1)
 	{
 		return (true);
 	}
-	str = getNodeAtIndex(build->env, i);
+	str = get_node_at_index(build->env, i);
 	ptr = _strchr(str, '=');
 	ptr++;
 	chdir(ptr);
@@ -66,7 +66,7 @@ _Bool cd_to_previous(config *build)
 	char *current = NULL;
 
 	current = getcwd(current, 0);
-	i = searchNode(build->env, "OLDPWD");
+	i = search_node(build->env, "OLDPWD");
 	if (i == -1)
 	{
 		chdir(current);
@@ -74,7 +74,7 @@ _Bool cd_to_previous(config *build)
 		put_new_line();
 		return (true);
 	}
-	str = getNodeAtIndex(build->env, i);
+	str = get_node_at_index(build->env, i);
 	ptr = _strchr(str, '=');
 	ptr++;
 	chdir(ptr);
@@ -112,7 +112,7 @@ _Bool update_environ(config *build)
 {
 	register int i;
 
-	i = updateOld(build);
+	i = update_old(build);
 	update_cur_dir(build, i);
 	return (true);
 }

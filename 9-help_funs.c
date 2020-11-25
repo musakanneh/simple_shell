@@ -5,7 +5,7 @@
  * @build: input build
  * Return: Always 1
  */
-int helpFunc(config *build)
+int help_function(config *build)
 {
 	type_b help_arr[] = {
 		{"exit", helpExit},
