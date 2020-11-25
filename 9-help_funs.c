@@ -1,27 +1,27 @@
 #include "holberton.h"
 
 /**
- * helpFunc - retrieves instruction on how to use builtin
+ * help_function - retrieves instruction on how to use builtin
  * @build: input build
  * Return: Always 1
  */
 int help_function(config *build)
 {
 	type_b help_arr[] = {
-		{"exit", helpExit},
-		{"env", helpEnv},
+		{"exit", help_guide_exit},
+		{"env", help_env},
 		{"history", helpHistory},
 		{"alias", help_alias},
 		{"cd", help_cd},
-		{"setenv", helpSetenv},
-		{"unsetenv", helpUnsetenv},
-		{"help", helpHelp},
+		{"setenv", help_set_env},
+		{"unsetenv", help_unset_env},
+		{"help", help_guide},
 		{NULL, NULL}};
 	register int i = 0, j = 1, argCount = count_args(build->args);
 	_Bool foundCommand = false;
 
 	if (argCount == 1)
-		return (displayHelpMenu());
+		return (display_help_menu());
 	while (j < argCount)
 	{
 		i = 0;
@@ -42,10 +42,10 @@ int help_function(config *build)
 }
 
 /**
- * displayHelpMenu - displays available help options
+ * display_help_menu - displays available help options
  * Return: Always 1
  */
-int displayHelpMenu(void)
+int display_help_menu(void)
 {
 	char str[81] = "Type help [built-in]\n\nIncluded built-ins:";
 	char *str2 = "\n\n\texit\n\tenv\n\tcd\n\tsetenv\n\tunsetenv\n\thelp\n";
@@ -56,11 +56,11 @@ int displayHelpMenu(void)
 }
 
 /**
- * helpExit - instructions on how to exit
+ * help_exit - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
-int helpExit(config *build)
+int help_guide_exit(config *build)
 {
 	char str[82] = "exit: exit [n]\n\tExit the shell.\n\n\t";
 	char *str2 = "Exit with a status of n, or if n is omitted, 0.\n";
@@ -72,11 +72,11 @@ int helpExit(config *build)
 }
 
 /**
- * helpEnv - instructions on how to exit
+ * help_env - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
-int helpEnv(config *build)
+int help_env(config *build)
 {
 	char str[] = "env: env\n\tPrint the environment.\n";
 
@@ -86,7 +86,7 @@ int helpEnv(config *build)
 }
 
 /**
- * helpHistory - instructions on how to exit
+ * help_history - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */

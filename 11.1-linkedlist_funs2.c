@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * searchNode - searches linked list for string and
+ * search_node - searches linked list for string and
  * returns index
  * @head: pointer to head of list
  * @str: input string
@@ -104,7 +104,7 @@ linked_l *add_node_at_index(linked_l **head, int index, char *str)
 }
 
 /**
- * getNodeAtIndex - returns the nth node of a listint_t linked list
+ * get_node_at_index - returns the nth node of a listint_t linked list
  * @head: pointer to head of list
  * @index: index of value to be returned
  * Return: address of node at input index

@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * addNode - adds a new node at the beginning of a linked_l list
+ * add_node_to_front - adds a new node at the beginning of a linked_l list
  * @head: reference to head of linked list
  * @str: string to be added on new node
  * Return: address of new head;
@@ -72,7 +72,7 @@ linked_l *add_node_to_end(linked_l **head, char *str)
 }
 
 /**
- * printList - prints all elements of a linked_l list
+ * print_list - prints all elements of a linked_l list
  * @h: pointer to head of list
  * Return: number of elements
  */
@@ -92,7 +92,7 @@ size_t print_list(const linked_l *h)
 }
 
 /**
- * deleteNodeAtIndex - deletes the node at index
+ * delete_node_at_index - deletes the node at index
  * index of a linked_l linked list
  * @head: double pointer to head of list
  * @index: index of node to be deleted

@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * envFunc - prints the environment
+ * env_function - prints the environment
  * @build: input build
  * Return: Always 1
  */

@@ -113,17 +113,17 @@ int _isalpha(int c);
 
 /* --- help_funs --- */
 int help_function(config *build);
-int displayHelpMenu(void);
-int helpExit(config *build);
-int helpEnv(config *build);
+int display_help_menu(void);
+int help_guide_exit(config *build);
+int help_env(config *build);
 int helpHistory(config *build);
 
 /* --- help_funs2 --- */
 int help_alias(config *build);
 int help_cd(config *biuld);
-int helpSetenv(config *build);
-int helpUnsetenv(config *build);
-int helpHelp(config *build);
+int help_set_env(config *build);
+int help_unset_env(config *build);
+int help_guide(config *build);
 
 /* --- shell --- */
 void shell(config *build);

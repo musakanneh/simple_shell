@@ -34,7 +34,7 @@ _Bool find_built_ins(config *build)
 }
 
 /**
- * exitFunc - exits the application
+ * exit_function - exits the application
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
@@ -90,7 +90,7 @@ int historyFunc(config *build)
 int aliasFunc(config *build)
 {
 	char *str = "Currently in development\n";
-	
+
 	(void)build;
 	write(STDOUT_FILENO, str, _strlen(str));
 	return (1);

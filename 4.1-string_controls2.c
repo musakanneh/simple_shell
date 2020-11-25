@@ -23,7 +23,7 @@ char *_strtok(char *str, char *delim)
 		{
 			return (NULL);
 		}
-	} 
+	}
 	while (_strchr(delim, ch));
 	str--;
 	lastptr = str + _strcspn(str, delim);

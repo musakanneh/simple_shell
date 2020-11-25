@@ -37,11 +37,11 @@ int help_cd(config *build)
 }
 
 /**
- * helpSetenv - instructions on how to exit
+ * help_set_env - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
-int helpSetenv(config *build)
+int help_set_env(config *build)
 {
 	char str[186] = "setenv: setenv [var] [value]\n\t";
 	char *str2 = "Set or update a variable in the environment.\n\n\t";
@@ -59,11 +59,11 @@ int helpSetenv(config *build)
 }
 
 /**
- * helpUnsetenv - instructions on how to exit
+ * help_unset_env - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
-int helpUnsetenv(config *build)
+int help_unset_env(config *build)
 {
 	char str[116] = "unsetenv: unsetenv [var]\n\t";
 	char *str2 = "Unset a variable in the environment.\n\n\t";
@@ -77,11 +77,11 @@ int helpUnsetenv(config *build)
 }
 
 /**
- * helpHelp - instructions on how to exit
+ * help_guide - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
-int helpHelp(config *build)
+int help_guide(config *build)
 {
 	char str[129] = "help: help [built-in]\n\t";
 	char *str2 = "Display information about built-in commands.\n\n\t";
