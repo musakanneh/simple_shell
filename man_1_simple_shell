@@ -1,4 +1,4 @@
-.TH man 1 "20 Nov 2020" "ALX-HOLBERTON" "SIMPLE_SHELL"
+.TH man 1 "14 Nov 2020" "ALX-HOLBERTON" "SIMPLE_SHELL"
 .SH NAME
 .B simple_shell
 - a simple UNIX command interpreter

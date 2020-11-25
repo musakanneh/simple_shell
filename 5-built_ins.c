@@ -69,7 +69,7 @@ int exit_function(config *build)
 }
 
 /**
- * historyFunc - displays command history
+ * history_function - displays command history
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
