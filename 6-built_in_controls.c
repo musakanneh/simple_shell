@@ -19,7 +19,7 @@ int count_args(char **args)
 /**
  * _atoi - convert a string to an integer
  * @s: input string
- * Return: -1 if it's not a valid number, 
+ * Return: -1 if it's not a valid number,
  * otherwise the converted number
  */
 int _atoi(char *s)

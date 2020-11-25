@@ -5,6 +5,7 @@
  *
  * Description: checks the path of a given command
  * @build: input build
+ * Return: the state of the path values
  */
 _Bool checkPath(config *build)
 {

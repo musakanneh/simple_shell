@@ -1,11 +1,12 @@
 #include "holberton.h"
 
 /**
- * handle_errors - a function that handles wrong user inputs 
- * 
- * Description: accepts user inputs and tests them 
- * handles constraints like: concatenations, 
- * converting strings to int etc. 
+ * handle_errors - a function that handles wrong user inputs
+ * @build: build input params
+ *
+ * Description: accepts user inputs and tests them
+ * handles constraints like: concatenations,
+ * converting strings to int etc.
  * Return: Nothing
  */
 void handle_errors(config *build)
@@ -38,7 +39,7 @@ void handle_errors(config *build)
 }
 
 /**
- * getErrorMessage - matches errno to corresponding string
+ * get_error_message - matches errno to corresponding string
  * Return: string of error message
  */
 char *get_error_message(void)

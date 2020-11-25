@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * helpAlias - instructions on how to exit
+ * help_alias - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
@@ -15,7 +15,7 @@ int help_alias(config *build)
 }
 
 /**
- * helpCd - instructions on how to exit
+ * help_cd - instructions on how to exit
  * @build: input build
  * Return: Always 1
  */
@@ -23,7 +23,7 @@ int help_cd(config *build)
 {
 	char str[192] = "cd: cd [destination]\n\t";
 	char *str2 = "Change directory to target destination.\n\t";
-	char *str3 = "If [destination] is ommitted, user will taken to home.\n\t";
+	char *str3 = "If [destination] is removed, user will taken to home.\n\t";
 	char *str4 = "If \"-\" is used as second argument, user will be taken to ";
 	char *str5 = "last directory.\n";
 

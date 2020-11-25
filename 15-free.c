@@ -1,7 +1,8 @@
 #include "holberton.h"
 
 /**
- * free_member - free build config members 
+ * free_member - free build config members
+ * @build: input build params
  * Return: Nothing
  */
 void free_member(config *build)
@@ -44,7 +45,7 @@ void free_list(linked_l *head)
 	head = NULL;
 }
 /**
- * freeArgs - helper func that frees double pointer arg
+ * free_args - a function that frees double pointer arg
  * @args: array of char pointers
  */
 void free_args(char **args)
@@ -59,7 +60,7 @@ void free_args(char **args)
 }
 
 /**
- * freeArgsAndBuffer - frees args and buffer
+ * free_args_and_buffer - frees args and buffer
  * @build: input build
  */
 void free_args_and_buffer(config *build)

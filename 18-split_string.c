@@ -4,9 +4,9 @@
  * splitString - splits string into an array of strings
  * separated by spaces
  * @build: input build
- * 
- * Description: Gets the input string, 
- * then breaks it into individual tokens and 
+ *
+ * Description: Gets the input string,
+ * then breaks it into individual tokens and
  * store it in an array ans separately implement them
  * Return: true if able to split, false if not
  */
@@ -38,8 +38,8 @@ _Bool split_string(config *build)
 /**
  * count_words - count number of words in a string
  * @str: input string
- * 
- * Description: gets letters in ever word, checks for 
+ *
+ * Description: gets letters in ever word, checks for
  * empty spaces constraints and returns the word's total count
  * Return: number of words
  */

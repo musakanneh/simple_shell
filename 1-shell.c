@@ -2,6 +2,7 @@
 
 /**
  * shell - a function that executes the loop functionalities
+ * @build: input build params
  * Return: Nothing
  */
 void shell(config *build)
@@ -24,9 +25,10 @@ void shell(config *build)
 
 /**
  * validate_line - a function to handle the user inputs
- * 
+ *
  * Description: gets user inputs, checks input against
  * build constraints, string edge cases and takes endless inputs
+ * @build: input build params
  * Return: Nothing
  */
 void validate_line(config *build)
@@ -97,9 +99,11 @@ void strip_comments(char *str)
 
 /**
  * fork_and_execute - fork current build and execute processes
- * 
- * Description: 
+ *
+ * Description: forks executing processes, then run the bin/ls program
+ * in child process, using the execve syscall.
  * @build: input build
+ * Return: Nothing
  */
 void fork_and_execute(config *build)
 {
@@ -139,7 +143,7 @@ void fork_and_execute(config *build)
 
 /**
  * convert_llist_to_arr - convert linked list to array
- * @build: input build
+ * @build: input build params
  */
 void convert_llist_to_arr(config *build)
 {
@@ -147,6 +151,7 @@ void convert_llist_to_arr(config *build)
 	size_t count = 0;
 	char **env_list = NULL;
 	linked_l *tmp = build->env;
+
 	count = list_len(build->env);
 	env_list = malloc(sizeof(char *) * (count + 1));
 
