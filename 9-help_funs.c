@@ -10,7 +10,7 @@ int help_function(config *build)
 	type_b help_arr[] = {
 		{"exit", help_guide_exit},
 		{"env", help_env},
-		{"history", helpHistory},
+		{"history", help_history},
 		{"alias", help_alias},
 		{"cd", help_cd},
 		{"setenv", help_set_env},
@@ -90,7 +90,7 @@ int help_env(config *build)
  * @build: input build
  * Return: Always 1
  */
-int helpHistory(config *build)
+int help_history(config *build)
 {
 	char str[] = "history: history\n\tNot supported in this version.\n";
 

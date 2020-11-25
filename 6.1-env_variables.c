@@ -17,7 +17,7 @@ int env_function(config *build)
  * @build: input build
  * Return: Always 1
  */
-int setenvFunc(config *build)
+int set_env_func(config *build)
 {
 	register int index, len;
 	static char buffer[BUFSIZE];
@@ -47,19 +47,19 @@ int setenvFunc(config *build)
 }
 
 /**
- * unsetenvFunc - deletes env variable if exists;
+ * unset_env_func - deletes env variable if exists;
  * will only accept valid variables names
  * @build: input build
  * Return: Always 1
  */
-int unsetenvFunc(config *build)
+int unset_env_func(config *build)
 {
 	register int foundVar, i = 1;
 	_Bool foundMatch = false;
 
 	while (build->args[i])
 	{
-		if (_isalpha(build->args[i][0]) || build->args[i][0] == '_')
+		if (is_alpha(build->args[i][0]) || build->args[i][0] == '_')
 		{
 			foundVar = search_node(build->env, build->args[i]);
 			if (foundVar > -1)
@@ -79,16 +79,22 @@ int unsetenvFunc(config *build)
 }
 
 /**
- * _isalpha - checks if c is an alphabetic character
+ * is_alpha - checks if c is an alphabetic character
  * @c: potential alphabetical value
  * Return: if c is a letter, returns 1. Otherwise, return 0.
  */
-int _isalpha(int c)
+int is_alpha(int c)
 {
 	if (c > 64 && c < 91)
+	{
 		return (1);
+	}
 	else if (c > 96 && c < 123)
+	{
 		return (1);
+	}
 	else
+	{
 		return (0);
+	}
 }

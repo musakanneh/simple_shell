@@ -12,11 +12,11 @@ _Bool find_built_ins(config *build)
 	type_b get_built_ins[] = {
 		{"exit", exit_function},
 		{"env", env_function},
-		{"history", historyFunc},
-		{"alias", aliasFunc},
+		{"history", history_function},
+		{"alias", alias_function},
 		{"cd", implement_cd},
-		{"setenv", setenvFunc},
-		{"unsetenv", unsetenvFunc},
+		{"setenv", set_env_func},
+		{"unsetenv", unset_env_func},
 		{"help", help_function},
 		{NULL, NULL}};
 
@@ -73,7 +73,7 @@ int exit_function(config *build)
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
-int historyFunc(config *build)
+int history_function(config *build)
 {
 	char *str = "Currently in development\n";
 
@@ -83,11 +83,11 @@ int historyFunc(config *build)
 }
 
 /**
- * aliasFunc - displays local aliases
+ * alias_function - displays local aliases
  * @build: input build
  * Return: 1 on success, 0 on failure
  */
-int aliasFunc(config *build)
+int alias_function(config *build)
 {
 	char *str = "Currently in development\n";
 

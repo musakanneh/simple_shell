@@ -87,8 +87,8 @@ config *config_init(config *build);
 /* --- built_ins --- */
 _Bool find_built_ins(config *build);
 int exit_function(config *build);
-int historyFunc(config *build);
-int aliasFunc(config *build);
+int history_function(config *build);
+int alias_function(config *build);
 
 /* --- built_in_controls --- */
 int count_args(char **args);
@@ -107,16 +107,16 @@ _Bool update_cur_dir(config *build, int index);
 
 /* --- env_variables --- */
 int env_function(config *build);
-int setenvFunc(config *build);
-int unsetenvFunc(config *build);
-int _isalpha(int c);
+int set_env_func(config *build);
+int unset_env_func(config *build);
+int is_alpha(int c);
 
 /* --- help_funs --- */
 int help_function(config *build);
 int display_help_menu(void);
 int help_guide_exit(config *build);
 int help_env(config *build);
-int helpHistory(config *build);
+int help_history(config *build);
 
 /* --- help_funs2 --- */
 int help_alias(config *build);
