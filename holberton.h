@@ -106,7 +106,7 @@ int update_old(config *build);
 _Bool update_cur_dir(config *build, int index);
 
 /* --- env_variables --- */
-int envFunc(config *build);
+int env_function(config *build);
 int setenvFunc(config *build);
 int unsetenvFunc(config *build);
 int _isalpha(int c);

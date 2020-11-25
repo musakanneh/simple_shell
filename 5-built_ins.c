@@ -11,7 +11,7 @@ _Bool find_built_ins(config *build)
 
 	type_b get_built_ins[] = {
 		{"exit", exit_function},
-		{"env", envFunc},
+		{"env", env_function},
 		{"history", historyFunc},
 		{"alias", aliasFunc},
 		{"cd", implement_cd},
@@ -40,10 +40,10 @@ _Bool find_built_ins(config *build)
  */
 int exit_function(config *build)
 {
-	register int argCount, exitStatus;
+	register int arg_count, exit_status;
 
-	argCount = count_args(build->args);
-	if (argCount == 1)
+	arg_count = count_args(build->args);
+	if (arg_count == 1)
 	{
 		free_member(build);
 		if (build->error_status)
@@ -52,10 +52,10 @@ int exit_function(config *build)
 		}
 		exit(EXIT_SUCCESS);
 	}
-	else if (argCount > 1)
+	else if (arg_count > 1)
 	{
-		exitStatus = _atoi(build->args[1]);
-		if (exitStatus == -1)
+		exit_status = _atoi(build->args[1]);
+		if (exit_status == -1)
 		{
 			errno = EILLEGAL;
 			build->error_status = 2;
@@ -63,7 +63,7 @@ int exit_function(config *build)
 			return (0);
 		}
 		free_member(build);
-		exit(exitStatus);
+		exit(exit_status);
 	}
 	return (1);
 }
@@ -90,7 +90,7 @@ int historyFunc(config *build)
 int aliasFunc(config *build)
 {
 	char *str = "Currently in development\n";
-
+	
 	(void)build;
 	write(STDOUT_FILENO, str, _strlen(str));
 	return (1);

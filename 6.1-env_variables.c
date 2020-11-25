@@ -5,7 +5,7 @@
  * @build: input build
  * Return: Always 1
  */
-int envFunc(config *build)
+int env_function(config *build)
 {
 	print_list(build->env);
 	return (1);
