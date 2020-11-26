@@ -147,7 +147,7 @@ _Bool split_string(config *build);
 unsigned int count_words(char *s);
 _Bool is_space(char c);
 
-/* --- string_controls1 --- */
+/* --- string_controls --- */
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);

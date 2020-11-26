@@ -10,12 +10,12 @@ void free_member(config *build)
 	if (build->env)
 	{
 		free_list(build->env);
-		// free(build->env);
+		free(build->env);
 	}
 	if (build->args)
 	{
 		free_args(build->args);
-		// free(build->args);
+		free(build->args);
 	}
 	if (build->buffer)
 	{

@@ -71,9 +71,11 @@ char *_strdup(char *str)
 		free(copy);
 	}
 	for (i = 0; i < len; i++)
+	{
 		copy[i] = str[i];
+	}
 	copy[i] = 0;
-	free(copy);
+	// free(copy);
 	return (copy);
 }
 

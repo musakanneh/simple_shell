@@ -7,7 +7,7 @@
  *
  * Description: Gets the input string,
  * then breaks it into individual tokens and
- * store it in an array ans separately implement them
+ * store it in an array ans separately to implement them
  * Return: true if able to split, false if not
  */
 _Bool split_string(config *build)
@@ -26,13 +26,15 @@ _Bool split_string(config *build)
 	token = _strtok(cpy, " ");
 	while (token)
 	{
+		// free(build->args);
 		build->args[i] = _strdup(token);
 		token = _strtok(NULL, " ");
 		i++;
+		// free(cpy);
 	}
 	build->args[i] = NULL;
-	free(build->args);
-	// free(cpy);
+	// free(build->args);
+	free(cpy);
 	return (true);
 }
 

@@ -21,7 +21,9 @@ int help_function(config *build)
 	_Bool foundCommand = false;
 
 	if (argCount == 1)
+	{
 		return (display_help_menu());
+	}
 	while (j < argCount)
 	{
 		i = 0;

@@ -49,7 +49,7 @@ _Bool cd_to_home(config *build)
 	ptr = _strchr(str, '=');
 	ptr++;
 	chdir(ptr);
-	free(str);
+	// free(str);
 	return (true);
 }
 
@@ -80,7 +80,7 @@ _Bool cd_to_previous(config *build)
 	chdir(ptr);
 	write(STDOUT_FILENO, ptr, _strlen(ptr));
 	put_new_line();
-	free(str);
+	// free(str);
 	return (true);
 }
 

@@ -29,6 +29,7 @@ linked_l *add_node_to_front(linked_l **head, char *str)
 	newNode->string = new_str;
 	newNode->next = *head;
 	*head = newNode;
+	// free(newNode);
 	return (*head);
 }
 
@@ -51,12 +52,12 @@ linked_l *add_node_to_end(linked_l **head, char *str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
-		exit(errno);
+		free(newNode);
 	}
 	newStr = _strdup(str);
 	if (!newStr)
 	{
-		free(newNode);
+		// free(newNode);
 		perror("Malloc failed\n");
 		exit(errno);
 	}
@@ -70,6 +71,7 @@ linked_l *add_node_to_end(linked_l **head, char *str)
 	while (last->next)
 		last = last->next;
 	last->next = newNode;
+	// free(newNode);
 	return (last);
 }
 
@@ -113,7 +115,7 @@ int delete_node_at_index(linked_l **head, unsigned int index)
 	if (!index)
 	{
 		*head = current->next;
-		free(current);
+		// free(current);
 		return (1);
 	}
 	for (i = 0; current && i < index - 1; i++)
@@ -122,7 +124,7 @@ int delete_node_at_index(linked_l **head, unsigned int index)
 		return (-1);
 	next = current->next->next;
 	free(current->next->string);
-	free(current->next);
+	// free(current->next);
 	current->next = next;
 	return (1);
 }

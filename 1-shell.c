@@ -47,7 +47,6 @@ void validate_line(config *build)
 	len = getline(&build->buffer, &buffer_size, stdin);
 	if (len == EOF)
 	{
-		free(build);
 		if (isatty(STDIN_FILENO))
 		{
 			put_new_line();
@@ -160,7 +159,6 @@ void convert_llist_to_arr(config *build)
 	if (!env_list)
 	{
 		perror("Malloc failed\n");
-		free(env_list);
 		exit(1);
 	}
 	while (tmp)

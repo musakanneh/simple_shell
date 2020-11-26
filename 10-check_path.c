@@ -25,7 +25,7 @@ _Bool check_path(config *build)
 		if (*tmp == 0 && stat(build->args[0], &st) == 0)
 		{
 			build->full_path = build->args[0];
-			free(copy);
+			// free(copy);
 			return (true);
 		}
 		len = _strlen(token) + _strlen(build->args[0]) + 2;
@@ -35,8 +35,8 @@ _Bool check_path(config *build)
 		get_null_bytes(buffer, len - 1);
 		if (stat(buffer, &st) == 0)
 		{
-			free(copy);
 			build->full_path = buffer;
+			free(copy);
 			return (true);
 		}
 		get_null_bytes(buffer, 0);
@@ -44,7 +44,7 @@ _Bool check_path(config *build)
 		inLoop = true;
 	}
 	build->full_path = build->args[0];
-	free(copy);
+	// free(copy);
 	return (false);
 }
 
@@ -62,13 +62,13 @@ _Bool validate_constraints(config *build)
 	if (!copy)
 	{
 		build->full_path = build->args[0];
-		free(copy);
+		// free(copy);
 		return (true);
 	}
 	if (*copy == ':' && stat(build->args[0], &st) == 0)
 	{
 		build->full_path = build->args[0];
-		free(copy);
+		// free(copy);
 		return (true);
 	}
 	free(copy);

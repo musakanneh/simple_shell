@@ -45,7 +45,7 @@ int exit_function(config *build)
 	arg_count = count_args(build->args);
 	if (arg_count == 1)
 	{
-		free_member(build);
+		// free_member(build);
 		if (build->error_status)
 		{
 			exit(build->error_status);
