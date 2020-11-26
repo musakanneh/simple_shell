@@ -44,6 +44,7 @@ void free_list(linked_l *head)
 	}
 	head = NULL;
 }
+
 /**
  * free_args - a function that frees double pointer arg
  * @args: array of char pointers

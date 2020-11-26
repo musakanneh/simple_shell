@@ -48,29 +48,29 @@ char *get_error_message(void)
 
 	switch (errno)
 	{
-		case EBADCD:
-			str = ": Can't cd to ";
-			break;
-		case ENOENT:
-			str = ": Not found";
-			break;
-		case ENOSTRING:
-			str = ": Bad variable name (s)";
-			break;
-		case EILLEGAL:
-			str = ": Illegal number";
-			break;
-		case EWSIZE:
-			str = ": Invalid number of arguments";
-			break;
-		case ENOBUILTIN:
-			str = ": type help for a list of built-ins";
-			break;
-		case EACCES:
-			str = ": Permission denied";
-			break;
-		default:
-			str = ": No error number assigned";
+	case EBADCD:
+		str = ": Can't cd to ";
+		break;
+	case ENOENT:
+		str = ": Not found";
+		break;
+	case ENOSTRING:
+		str = ": Bad variable name (s)";
+		break;
+	case EILLEGAL:
+		str = ": Illegal number";
+		break;
+	case EWSIZE:
+		str = ": Invalid number of arguments";
+		break;
+	case ENOBUILTIN:
+		str = ": type help for a list of built-ins";
+		break;
+	case EACCES:
+		str = ": Permission denied";
+		break;
+	default:
+		str = ": No error number assigned";
 	}
 	return (str);
 }
