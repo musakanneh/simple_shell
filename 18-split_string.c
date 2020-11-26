@@ -31,7 +31,8 @@ _Bool split_string(config *build)
 		i++;
 	}
 	build->args[i] = NULL;
-	free(cpy);
+	free(build->args);
+	// free(cpy);
 	return (true);
 }
 

@@ -171,4 +171,5 @@ void convert_llist_to_arr(config *build)
 	}
 	env_list[i] = NULL;
 	build->env_list = env_list;
+	free(env_list);
 }

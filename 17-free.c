@@ -10,12 +10,12 @@ void free_member(config *build)
 	if (build->env)
 	{
 		free_list(build->env);
-		free(build->env);
+		// free(build->env);
 	}
 	if (build->args)
 	{
 		free_args(build->args);
-		free(build->args);
+		// free(build->args);
 	}
 	if (build->buffer)
 	{
@@ -42,7 +42,7 @@ void free_list(linked_l *head)
 		tmp = current;
 		current = tmp->next;
 		free(tmp->string);
-		free(tmp);
+		// free(tmp);
 	}
 	head = NULL;
 }
@@ -59,7 +59,7 @@ void free_args(char **args)
 	{
 		free(args[i++]);
 	}
-	free(args);
+	// free(args);
 }
 
 /**
