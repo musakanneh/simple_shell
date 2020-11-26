@@ -15,7 +15,6 @@ int main(int ac, char **av)
 	config_init(&build);
 	build.shell_name = av[0];
 	shell(&build);
-	free(shell);
 	return (0);
 }
 
