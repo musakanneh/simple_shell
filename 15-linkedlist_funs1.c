@@ -18,6 +18,7 @@ linked_l *add_node_to_front(linked_l **head, char *str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
+		free(newNode);
 	}
 	new_str = _strdup(str);
 	if (!new_str)
@@ -49,6 +50,7 @@ linked_l *add_node_to_end(linked_l **head, char *str)
 	if (!newNode)
 	{
 		perror("Malloc failed\n");
+		exit(errno);
 		exit(errno);
 	}
 	newStr = _strdup(str);

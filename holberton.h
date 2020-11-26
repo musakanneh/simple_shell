@@ -23,17 +23,6 @@
 
 extern char **environ;
 
-/* --- string control functions --- */
-int _strlen(char *s);
-char *_strcpy(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strcat(char *dest, char *src);
-char *_strdup(char *str);
-char *_strchr(char *s, char c);
-char *itoa(unsigned int n);
-int intlen(int num);
-void rev_arr(char *arr, int len);
-
 /**
  * struct linkedList - linked list data structure
  * @string: environ variable path name
@@ -48,14 +37,14 @@ typedef struct linkedList
 /**
  * struct configurations - configuration of build settings
  * @env: linked list of local env variables
- * @envList: array of env variables to put into execve
+ * @env_list: array of env variables to put into execve
  * @args: array of argument strings
  * @buffer: string buffer of user input
  * @path: array of $PATH locations
- * @fullPath: string of path with correct prepended $PATH
- * @shellName: name of shell (argv[0])
- * @lineCounter: counter of lines users have entered
- * @errorStatus: error status of last child process
+ * @full_path: string of path with correct prepended $PATH
+ * @shell_name: name of shell (argv[0])
+ * @count_line: counter of lines users have entered
+ * @error_status: error status of last child process
  */
 typedef struct configurations
 {

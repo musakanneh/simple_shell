@@ -68,6 +68,7 @@ char *_strdup(char *str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
+		free(copy);
 	}
 	for (i = 0; i < len; i++)
 		copy[i] = str[i];

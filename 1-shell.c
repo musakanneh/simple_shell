@@ -160,6 +160,7 @@ void convert_llist_to_arr(config *build)
 	if (!env_list)
 	{
 		perror("Malloc failed\n");
+		free(env_list);
 		exit(1);
 	}
 	while (tmp)

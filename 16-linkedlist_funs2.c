@@ -76,13 +76,14 @@ linked_l *add_node_at_index(linked_l **head, int index, char *str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
+		free(newNode);
 	}
 	newStr = _strdup(str);
 	if (!newStr)
 	{
-		free(newNode);
 		perror("Malloc failed\n");
 		exit(errno);
+		free(newStr);
 	}
 
 	newNode->string = newStr;

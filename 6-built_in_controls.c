@@ -16,6 +16,7 @@ int count_args(char **args)
 	return (i);
 }
 
+
 /**
  * _atoi - convert a string to an integer
  * @s: input string
