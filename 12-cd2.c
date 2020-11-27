@@ -22,7 +22,7 @@ int update_old(config *build)
 	current = get_node_at_index(build->env, pwdIndex);
 	_strcat(old, current);
 	get_null_bytes(old, _strlen(current) + 4);
-	/*free(current); */
+	/* free(current); */
 	index = search_node(build->env, "OLDPWD");
 	if (index == -1)
 	{

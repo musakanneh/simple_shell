@@ -51,7 +51,7 @@ void validate_line(config *build)
 	len = getline(&build->buffer, &buffer_size, stdin);
 	if (len == EOF)
 	{
-		/* checks relation with terminal device*/
+		/* checks relation with terminal device */
 		if (isatty(STDIN_FILENO))
 		{
 			put_new_line();

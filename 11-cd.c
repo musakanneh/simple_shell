@@ -49,7 +49,6 @@ _Bool cd_to_home(config *build)
 	ptr = _strchr(str, '=');
 	ptr++;
 	chdir(ptr);
-	// free(str);
 	return (true);
 }
 

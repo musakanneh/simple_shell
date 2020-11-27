@@ -122,7 +122,7 @@ int delete_node_at_index(linked_l **head, unsigned int index)
 	next = current->next->next;
 	free(current->next->string);
 	current->next = next;
-	/*free(current->next);*/
+	/* free(current->next); */
 	return (1);
 }
 
