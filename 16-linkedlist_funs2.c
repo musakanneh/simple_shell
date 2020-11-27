@@ -26,7 +26,6 @@ int search_node(linked_l *head, char *str)
 		tmp[i] = '\0';
 		if (_strcmp(str, tmp) == 0)
 		{
-			// free(tmp);
 			return (index);
 		}
 		index++;
@@ -86,7 +85,6 @@ linked_l *add_node_at_index(linked_l **head, int index, char *str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
-		// free(newStr);
 	}
 
 	new_node->string = new_str;
@@ -96,7 +94,6 @@ linked_l *add_node_at_index(linked_l **head, int index, char *str)
 	{
 		if (current->next == NULL)
 		{
-			// free(newNode);
 			return (NULL);
 		}
 		current = current->next;
@@ -104,7 +101,6 @@ linked_l *add_node_at_index(linked_l **head, int index, char *str)
 	}
 	new_node->next = current->next;
 	current->next = new_node;
-	// free(newNode);
 	return (new_node);
 }
 

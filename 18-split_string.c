@@ -26,15 +26,11 @@ _Bool split_string(config *build)
 	build->args = malloc((count_words(build->buffer) + 1) * sizeof(char *));
 	while (tok)
 	{
-		// free(build->args);
 		build->args[i] = _strdup(tok);
 		tok = _strtok(NULL, " ");
 		i++;
-		// free(build->args);
-		// free(cpy);
 	}
 	build->args[i] = NULL;
-	// free(build->args);
 	free(cpy);
 
 	return (true);

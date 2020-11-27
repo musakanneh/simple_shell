@@ -80,7 +80,6 @@ _Bool cd_to_previous(config *build)
 	chdir(ptr);
 	write(STDOUT_FILENO, ptr, _strlen(ptr));
 	put_new_line();
-	// free(str);
 	return (true);
 }
 

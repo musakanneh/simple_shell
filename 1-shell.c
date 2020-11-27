@@ -59,7 +59,6 @@ void validate_line(config *build)
 		if (build->error_status)
 		{
 			exit(build->error_status);
-			// free(build->error_status);
 		}
 		exit(EXIT_SUCCESS);
 	}
@@ -145,7 +144,6 @@ void fork_and_execute(config *build)
 		}
 		free_args_and_buffer(build);
 		free_args(build->env_list);
-		// free(build->env_list);
 	}
 }
 

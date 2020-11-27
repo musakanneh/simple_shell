@@ -42,7 +42,6 @@ void free_list(linked_l *head)
 		tmp = current;
 		current = tmp->next;
 		free(tmp->string);
-		// free(tmp);
 	}
 	head = NULL;
 }
@@ -59,7 +58,7 @@ void free_args(char **args)
 	{
 		free(args[i++]);
 	}
-	// free(args);
+	/*free(args);*/
 }
 
 /**
