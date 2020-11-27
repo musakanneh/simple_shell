@@ -3,6 +3,8 @@
 /**
  * find_built_ins - validates if command is builtin and executes
  * @build: input build
+ * 
+ * Description: uses build  functions to validate user commands
  * Return: true if found, false if not
  */
 _Bool find_built_ins(config *build)
@@ -45,7 +47,7 @@ int exit_function(config *build)
 	arg_count = count_args(build->args);
 	if (arg_count == 1)
 	{
-		// free_member(build);
+		free_member(build);
 		if (build->error_status)
 		{
 			exit(build->error_status);

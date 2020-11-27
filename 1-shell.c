@@ -1,8 +1,12 @@
 #include "holberton.h"
 
 /**
- * shell - a function that executes the loop functionalities
+ * shell - a function that executes the 
+ * loop's functionalities
  * @build: input build params
+ * 
+ * Description: reviews user inputs and validates strings;
+ * otherwise, check the path, forkand execute it 
  * Return: Nothing
  */
 void shell(config *build)
@@ -47,6 +51,7 @@ void validate_line(config *build)
 	len = getline(&build->buffer, &buffer_size, stdin);
 	if (len == EOF)
 	{
+		/* checks relation with terminal device*/
 		if (isatty(STDIN_FILENO))
 		{
 			put_new_line();
@@ -54,6 +59,7 @@ void validate_line(config *build)
 		if (build->error_status)
 		{
 			exit(build->error_status);
+			// free(build->error_status);
 		}
 		exit(EXIT_SUCCESS);
 	}
@@ -139,6 +145,7 @@ void fork_and_execute(config *build)
 		}
 		free_args_and_buffer(build);
 		free_args(build->env_list);
+		// free(build->env_list);
 	}
 }
 

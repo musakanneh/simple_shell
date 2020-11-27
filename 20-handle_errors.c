@@ -34,7 +34,7 @@ void handle_errors(config *build)
 	ptr = _strchr(error, '\n');
 	len = ptr - error;
 	write(STDERR_FILENO, error, len + 1);
-	// free(is_alpha);
+	free(is_alpha);
 	get_null_bytes(error, 0);
 }
 

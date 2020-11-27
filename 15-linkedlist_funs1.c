@@ -124,8 +124,8 @@ int delete_node_at_index(linked_l **head, unsigned int index)
 		return (-1);
 	next = current->next->next;
 	free(current->next->string);
-	// free(current->next);
 	current->next = next;
+	// free(current->next);
 	return (1);
 }
 

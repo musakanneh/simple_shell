@@ -14,7 +14,7 @@ _Bool split_string(config *build)
 {
 	register unsigned int i = 0;
 	char *tok, *cpy;
-	
+
 	cpy = _strdup(build->buffer);
 	tok = _strtok(cpy, " ");
 	if (count_words(build->buffer) == 0)

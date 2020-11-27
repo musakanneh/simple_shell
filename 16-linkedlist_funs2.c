@@ -1,8 +1,7 @@
 #include "holberton.h"
 
 /**
- * search_node - searches linked list for string and
- * returns index
+ * search_node - searches linked list for string and returns index
  * @head: pointer to head of list
  * @str: input string
  * Return: index of node with matching string
@@ -27,12 +26,12 @@ int search_node(linked_l *head, char *str)
 		tmp[i] = '\0';
 		if (_strcmp(str, tmp) == 0)
 		{
-			free(tmp);
+			// free(tmp);
 			return (index);
 		}
 		index++;
 		current = current->next;
-		// free(tmp);
+		free(tmp);
 	}
 	return (-1);
 }
@@ -67,29 +66,31 @@ linked_l *generateLinkedList(char **array)
 linked_l *add_node_at_index(linked_l **head, int index, char *str)
 {
 	register int i = 0;
-	linked_l *newNode, *current;
-	char *newStr;
+	linked_l *new_node, *current;
+	char *new_str;
 
 	current = *head;
 	if (!str)
+	{
 		return (NULL);
-	newNode = malloc(sizeof(linked_l));
-	if (!newNode)
+	}
+	new_node = malloc(sizeof(linked_l));
+	if (!new_node)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
-		free(newNode);
+		free(new_node);
 	}
-	newStr = _strdup(str);
-	if (!newStr)
+	new_str = _strdup(str);
+	if (!new_str)
 	{
 		perror("Malloc failed\n");
 		exit(errno);
 		// free(newStr);
 	}
 
-	newNode->string = newStr;
-	newNode->next = NULL;
+	new_node->string = new_str;
+	new_node->next = NULL;
 
 	while (i < index - 1)
 	{
@@ -101,10 +102,10 @@ linked_l *add_node_at_index(linked_l **head, int index, char *str)
 		current = current->next;
 		i++;
 	}
-	newNode->next = current->next;
-	current->next = newNode;
+	new_node->next = current->next;
+	current->next = new_node;
 	// free(newNode);
-	return (newNode);
+	return (new_node);
 }
 
 /**

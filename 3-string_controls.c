@@ -10,7 +10,9 @@ int _strlen(char *s)
 	char *p = s;
 
 	while (*s)
+	{
 		s++;
+	}
 	return (s - p);
 }
 
@@ -25,7 +27,9 @@ char *_strcat(char *dest, char *src)
 	char *ptr = dest + _strlen(dest);
 
 	while (*src)
+	{
 		*ptr++ = *src++;
+	}
 	*ptr = 0;
 	return (dest);
 }
@@ -41,7 +45,9 @@ int _strcmp(char *s1, char *s2)
 	while (*s1)
 	{
 		if (*s1 != *s2)
+		{
 			break;
+		}
 		s1++;
 		s2++;
 	}
@@ -61,7 +67,9 @@ char *_strdup(char *str)
 	char *copy;
 
 	if (!str)
+	{
 		return (NULL);
+	}
 	len = _strlen(str);
 	copy = malloc(sizeof(char) * len + 1);
 	if (!copy)
@@ -75,7 +83,6 @@ char *_strdup(char *str)
 		copy[i] = str[i];
 	}
 	copy[i] = 0;
-	// free(copy);
 	return (copy);
 }
 
@@ -91,7 +98,9 @@ char *_strcpy(char *dest, char *src)
 	char *ptr = dest;
 
 	while (*src)
+	{
 		*dest++ = *src++;
+	}
 	*dest = 0;
 	return (ptr);
 }

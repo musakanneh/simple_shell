@@ -21,6 +21,9 @@ int main(int ac, char **av)
 /**
  * config_init - initialize member values for config struct
  * @build: input build
+ * 
+ * Description: Accepts structured input commnad, and finds the right 
+ * configuration to execute from the built-in configurations.
  * Return: build with initialized members
  */
 config *config_init(config *build)

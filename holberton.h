@@ -130,7 +130,7 @@ unsigned int count_num_digits(int num);
 char *itoa(unsigned int num);
 char *get_error_message();
 
-/* The shell controls */
+/* shell_controls */
 void get_null_bytes(char *str, unsigned int index);
 void get_prompt(void);
 void put_new_line(void);
