@@ -9,7 +9,6 @@
 int main(int ac, char **av)
 {
 	config build;
-	
 	(void)ac;
 	signal(SIGINT, handle_sigint);
 	config_init(&build);
@@ -21,8 +20,8 @@ int main(int ac, char **av)
 /**
  * config_init - initialize member values for config struct
  * @build: input build
- * 
- * Description: Accepts structured input commnad, and finds the right 
+ *
+ * Description: Accepts structured input commnad, and finds the right
  * configuration to execute from the built-in configurations.
  * Return: build with initialized members
  */

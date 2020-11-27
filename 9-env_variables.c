@@ -12,7 +12,7 @@ int env_function(config *build)
 }
 
 /**
- * setenvFunc - adds env variable if it does not exist;
+ * set_env_func - adds env variable if it does not exist;
  * modify env variable if it does
  * @build: input build
  * Return: Always 1

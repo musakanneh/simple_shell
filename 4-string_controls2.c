@@ -16,15 +16,13 @@ char *_strtok(char *str, char *delim)
 	{
 		str = lastptr;
 	}
-	do
-	{
+	do {
 		ch = *str++;
 		if (!ch)
 		{
 			return (NULL);
 		}
-	}
-	while (_strchr(delim, ch));
+	} while (_strchr(delim, ch));
 	str--;
 	lastptr = str + _strcspn(str, delim);
 	if (*lastptr)

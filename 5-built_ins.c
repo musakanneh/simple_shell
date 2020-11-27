@@ -3,7 +3,7 @@
 /**
  * find_built_ins - validates if command is builtin and executes
  * @build: input build
- * 
+ *
  * Description: uses build  functions to validate user commands
  * Return: true if found, false if not
  */

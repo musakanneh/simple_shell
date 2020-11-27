@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * shell - a function that executes the 
+ * shell - a function that executes the
  * loop's functionalities
  * @build: input build params
- * 
+ *
  * Description: reviews user inputs and validates strings;
- * otherwise, check the path, forkand execute it 
+ * otherwise, check the path, forkand execute it
  * Return: Nothing
  */
 void shell(config *build)
