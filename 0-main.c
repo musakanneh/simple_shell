@@ -9,7 +9,7 @@
 int main(int ac, char **av)
 {
 	config build;
-
+	
 	(void)ac;
 	signal(SIGINT, handle_sigint);
 	config_init(&build);

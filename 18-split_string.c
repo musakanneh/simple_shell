@@ -13,8 +13,10 @@
 _Bool split_string(config *build)
 {
 	register unsigned int i = 0;
-	char *token, *cpy;
-
+	char *tok, *cpy;
+	
+	cpy = _strdup(build->buffer);
+	tok = _strtok(cpy, " ");
 	if (count_words(build->buffer) == 0)
 	{
 		build->args = NULL;
@@ -22,19 +24,19 @@ _Bool split_string(config *build)
 		return (false);
 	}
 	build->args = malloc((count_words(build->buffer) + 1) * sizeof(char *));
-	cpy = _strdup(build->buffer);
-	token = _strtok(cpy, " ");
-	while (token)
+	while (tok)
 	{
 		// free(build->args);
-		build->args[i] = _strdup(token);
-		token = _strtok(NULL, " ");
+		build->args[i] = _strdup(tok);
+		tok = _strtok(NULL, " ");
 		i++;
+		// free(build->args);
 		// free(cpy);
 	}
 	build->args[i] = NULL;
 	// free(build->args);
 	free(cpy);
+
 	return (true);
 }
 
